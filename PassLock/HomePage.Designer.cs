@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -40,20 +44,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.LogoutIcon = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClearBtn = new System.Windows.Forms.Button();
+            this.SearchBtn = new System.Windows.Forms.Button();
+            this.ExportBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoutIcon)).BeginInit();
@@ -75,14 +75,45 @@
             this.dataGridView1.Location = new System.Drawing.Point(16, 132);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Purple;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Purple;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(768, 306);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // AccountName
+            // 
+            this.AccountName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.AccountName.DataPropertyName = "AccountName";
+            this.AccountName.HeaderText = "Account Name";
+            this.AccountName.Name = "AccountName";
+            this.AccountName.ReadOnly = true;
+            this.AccountName.Width = 95;
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
+            // AccountID
+            // 
+            this.AccountID.DataPropertyName = "AccountID";
+            this.AccountID.HeaderText = "Account ID";
+            this.AccountID.Name = "AccountID";
+            this.AccountID.ReadOnly = true;
+            this.AccountID.Visible = false;
             // 
             // label2
             // 
@@ -160,58 +191,6 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Account Name :";
             // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.ForeColor = System.Drawing.Color.Purple;
-            this.button1.Location = new System.Drawing.Point(449, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Add New";
-            this.toolTip.SetToolTip(this.button1, "Fill the Locker to add new record");
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button2.ForeColor = System.Drawing.Color.Purple;
-            this.button2.Location = new System.Drawing.Point(449, 58);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Update";
-            this.toolTip.SetToolTip(this.button2, "Duble click on the record below to select and edit in the Locker to update");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button3.ForeColor = System.Drawing.Color.Purple;
-            this.button3.Location = new System.Drawing.Point(449, 99);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Delete";
-            this.toolTip.SetToolTip(this.button3, "Select a record below and then click on delete to remove");
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button4.ForeColor = System.Drawing.Color.Purple;
-            this.button4.Location = new System.Drawing.Point(544, 61);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Clear";
-            this.toolTip.SetToolTip(this.button4, "Clear the locker");
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // LogoutIcon
             // 
             this.LogoutIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -225,19 +204,6 @@
             this.LogoutIcon.TabStop = false;
             this.toolTip.SetToolTip(this.LogoutIcon, "Logut");
             this.LogoutIcon.Click += new System.EventHandler(this.LogoutIcon_Click);
-            // 
-            // button5
-            // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button5.ForeColor = System.Drawing.Color.Purple;
-            this.button5.Location = new System.Drawing.Point(638, 99);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(146, 23);
-            this.button5.TabIndex = 14;
-            this.button5.Text = "Search";
-            this.toolTip.SetToolTip(this.button5, "Fill up above box to search");
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox4
             // 
@@ -258,50 +224,84 @@
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 16;
             // 
-            // button8
+            // ClearBtn
             // 
-            this.button8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Purple;
-            this.button8.Location = new System.Drawing.Point(544, 99);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 19;
-            this.button8.Text = "Export";
-            this.toolTip.SetToolTip(this.button8, "Export to MS Excel");
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.ClearBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ClearBtn.ForeColor = System.Drawing.Color.Purple;
+            this.ClearBtn.Location = new System.Drawing.Point(544, 59);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(75, 23);
+            this.ClearBtn.TabIndex = 20;
+            this.ClearBtn.Text = "Clear";
+            this.toolTip.SetToolTip(this.ClearBtn, "Clear the locker");
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
-            // AccountName
+            // SearchBtn
             // 
-            this.AccountName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.AccountName.DataPropertyName = "AccountName";
-            this.AccountName.HeaderText = "Account Name";
-            this.AccountName.Name = "AccountName";
-            this.AccountName.ReadOnly = true;
-            this.AccountName.Width = 95;
+            this.SearchBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.SearchBtn.ForeColor = System.Drawing.Color.Purple;
+            this.SearchBtn.Location = new System.Drawing.Point(638, 99);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(146, 23);
+            this.SearchBtn.TabIndex = 21;
+            this.SearchBtn.Text = "Search";
+            this.toolTip.SetToolTip(this.SearchBtn, "Fill up above box to search");
+            this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
-            // Username
+            // ExportBtn
             // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
+            this.ExportBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ExportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExportBtn.ForeColor = System.Drawing.Color.Purple;
+            this.ExportBtn.Location = new System.Drawing.Point(544, 99);
+            this.ExportBtn.Name = "ExportBtn";
+            this.ExportBtn.Size = new System.Drawing.Size(75, 23);
+            this.ExportBtn.TabIndex = 22;
+            this.ExportBtn.Text = "Export";
+            this.toolTip.SetToolTip(this.ExportBtn, "Export to MS Excel");
+            this.ExportBtn.UseVisualStyleBackColor = true;
+            this.ExportBtn.Click += new System.EventHandler(this.ExportBtn_Click);
             // 
-            // Password
+            // DeleteBtn
             // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
+            this.DeleteBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DeleteBtn.ForeColor = System.Drawing.Color.Purple;
+            this.DeleteBtn.Location = new System.Drawing.Point(449, 99);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.DeleteBtn.TabIndex = 23;
+            this.DeleteBtn.Text = "Delete";
+            this.toolTip.SetToolTip(this.DeleteBtn, "Select a record below and then click on delete to remove");
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
-            // AccountID
+            // UpdateBtn
             // 
-            this.AccountID.DataPropertyName = "AccountID";
-            this.AccountID.HeaderText = "Account ID";
-            this.AccountID.Name = "AccountID";
-            this.AccountID.ReadOnly = true;
-            this.AccountID.Visible = false;
+            this.UpdateBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.UpdateBtn.ForeColor = System.Drawing.Color.Purple;
+            this.UpdateBtn.Location = new System.Drawing.Point(449, 59);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(75, 23);
+            this.UpdateBtn.TabIndex = 24;
+            this.UpdateBtn.Text = "Update";
+            this.toolTip.SetToolTip(this.UpdateBtn, "Duble click on the record below to select and edit in the Locker to update");
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.AddBtn.ForeColor = System.Drawing.Color.Purple;
+            this.AddBtn.Location = new System.Drawing.Point(449, 19);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddBtn.TabIndex = 25;
+            this.AddBtn.Text = "Add New";
+            this.toolTip.SetToolTip(this.AddBtn, "Fill the Locker to add new record");
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // HomePage
             // 
@@ -309,15 +309,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Purple;
             this.ClientSize = new System.Drawing.Size(800, 454);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.AddBtn);
+            this.Controls.Add(this.UpdateBtn);
+            this.Controls.Add(this.DeleteBtn);
+            this.Controls.Add(this.ExportBtn);
+            this.Controls.Add(this.SearchBtn);
+            this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.LogoutIcon);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
@@ -345,19 +345,19 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox LogoutIcon;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button8;
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountID;
+        private System.Windows.Forms.Button ClearBtn;
+        private System.Windows.Forms.Button SearchBtn;
+        private System.Windows.Forms.Button ExportBtn;
+        private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Button UpdateBtn;
+        private System.Windows.Forms.Button AddBtn;
     }
 }

@@ -108,7 +108,7 @@ namespace PassLock
                 else
                 {
                     label7.Visible = true;
-                    label7.Text = "One of your answer is in correct";
+                    label7.Text = "        One of your answer is in correct";
                 }
             }
         }
@@ -165,8 +165,7 @@ namespace PassLock
         {
             label7.Visible = false;
             if (hasSpaceInPassword(textBox6.Text) == false)
-            {
-                label7.Visible = false;
+            {                
                 if (isValidPassword(textBox6.Text) == true)
                 {
                     label8.ForeColor = System.Drawing.Color.Black;
@@ -190,9 +189,9 @@ namespace PassLock
                         sqlCon.Close();
                     }
                     else
-                    {
-                        label7.Visible = true;
+                    {                        
                         label7.Text = "       Confirm password did not matched";
+                        label7.Visible = true;
                     }
                 }
                 else

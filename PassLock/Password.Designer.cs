@@ -56,7 +56,6 @@
             // 
             // panelLeft
             // 
-            this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelLeft.Controls.Add(this.button4);
             this.panelLeft.Controls.Add(this.button1);
             this.panelLeft.Controls.Add(this.textBox2);
@@ -126,13 +125,12 @@
             // 
             // panelMid
             // 
-            this.panelMid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMid.Controls.Add(this.button2);
             this.panelMid.Controls.Add(this.textBox3);
             this.panelMid.Controls.Add(this.textBox4);
             this.panelMid.Controls.Add(this.label3);
             this.panelMid.Controls.Add(this.label4);
-            this.panelMid.Location = new System.Drawing.Point(387, 36);
+            this.panelMid.Location = new System.Drawing.Point(385, 36);
             this.panelMid.Name = "panelMid";
             this.panelMid.Size = new System.Drawing.Size(277, 194);
             this.panelMid.TabIndex = 1;
@@ -164,6 +162,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(25, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 13);
@@ -172,6 +171,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(25, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 13);
@@ -179,7 +179,6 @@
             // 
             // panelRight
             // 
-            this.panelRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRight.Controls.Add(this.label8);
             this.panelRight.Controls.Add(this.button3);
             this.panelRight.Controls.Add(this.textBox5);
@@ -194,6 +193,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(25, 183);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(231, 26);
@@ -232,6 +232,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(25, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 13);
@@ -241,6 +242,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(25, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(146, 13);
@@ -252,7 +254,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(57, 247);
+            this.label7.Location = new System.Drawing.Point(57, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(259, 13);
             this.label7.TabIndex = 3;
@@ -264,7 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Purple;
-            this.ClientSize = new System.Drawing.Size(375, 278);
+            this.ClientSize = new System.Drawing.Size(377, 278);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelMid);

@@ -27,21 +27,15 @@ namespace PassLock
         {
             textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = "";
             lockerTable.AccountID = 0;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            clear();
-            DataPopulate();
-        }
+        }  
 
         private void HomePage_Load(object sender, EventArgs e)
         {
             clear();
             DataPopulate();
-        }
+        }      
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddBtn_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
             {
@@ -89,9 +83,9 @@ namespace PassLock
                     textBox2.Text = lockerTable.Username;
                     textBox3.Text = lockerTable.Password;
                 }            
-        }
+        }      
 
-        private void button2_Click(object sender, EventArgs e)
+        private void UpdateBtn_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
             {
@@ -109,14 +103,14 @@ namespace PassLock
                         db.UserLockers.Add(lockerTable);
                     else
                         db.Entry(lockerTable).State = EntityState.Modified;
-                        db.SaveChanges();
+                    db.SaveChanges();
                 }
                 DataPopulate();
                 MessageBox.Show("Record Successfully added");
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void DeleteBtn_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
             {
@@ -139,50 +133,53 @@ namespace PassLock
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void ExportBtn_Click(object sender, EventArgs e)
         {
-            Excel._Application msapp = new Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook workbook = msapp.Workbooks.Add(Type.Missing);
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            if (MessageBox.Show("Are you sure to Export the file ?", "Cofirm Export", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Excel._Application msapp = new Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = msapp.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
 
-            //Can be seen the process of writing in excel
-            //msapp.Visible = true;
-            worksheet = workbook.Sheets["Sheet1"];
-            worksheet = workbook.ActiveSheet;
-            worksheet.Name = "AccountsDetails";
-            //Put Header in excel
-            for (int i = 1; i < dataGridView1.Columns.Count; i++)
+                //Can be seen the process of writing in excel
+                //msapp.Visible = true;
+                worksheet = workbook.Sheets["Sheet1"];
+                worksheet = workbook.ActiveSheet;
+                worksheet.Name = "AccountsDetails";
+                //Put Header in excel
+                for (int i = 1; i < dataGridView1.Columns.Count; i++)
                     worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
 
                 //To put the datagrid data in excel
-                for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
-                    for (int j = 0; j < dataGridView1.Columns.Count-1; j++)
+                    for (int j = 0; j < dataGridView1.Columns.Count - 1; j++)
                     {
-                        worksheet.Cells[i+2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
                     }
                 }
                 //Pop up save file dailog box
                 var saveFile = new SaveFileDialog();
                 saveFile.FileName = "ExportFile";
                 saveFile.DefaultExt = ".xlsx";
-            //File foramt
-            if (saveFile.ShowDialog() == DialogResult.OK)
-            {
-                workbook.SaveAs(saveFile.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-                    Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                //File foramt
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    workbook.SaveAs(saveFile.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                        Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                }
+                msapp.Quit();
             }
-            msapp.Quit();           
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void SearchBtn_Click(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
             lockerTable.UserID = Int32.Parse(userID);
             using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
             {
                 sqlCon.Open();
-                SqlDataAdapter sdata = new SqlDataAdapter("SELECT * FROM [testdb].[dbo].[UserLocker] WHERE [UserID] = '" + lockerTable.UserID + "' and [AccountName] like '%"+ textBox4.Text+ "%'", sqlCon);
+                SqlDataAdapter sdata = new SqlDataAdapter("SELECT * FROM [testdb].[dbo].[UserLocker] WHERE [UserID] = '" + lockerTable.UserID + "' and [AccountName] like '%" + textBox4.Text + "%'", sqlCon);
                 DataTable dataTable = new DataTable();
                 sdata.Fill(dataTable);
                 dataGridView1.DataSource = dataTable;
@@ -200,5 +197,13 @@ namespace PassLock
                     MessageBox.Show("You have successfully Logged out. Thanks for using PassLocker");
                 }
         }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            clear();
+            DataPopulate();
+        }
+
+       
     }
 }
