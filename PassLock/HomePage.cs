@@ -25,13 +25,14 @@ namespace PassLock
 
         public void clear()
         {
-            textBox1.Text = textBox2.Text = textBox3.Text = "";
+            textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = "";
             lockerTable.AccountID = 0;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             clear();
+            DataPopulate();
         }
 
         private void HomePage_Load(object sender, EventArgs e)
@@ -43,11 +44,11 @@ namespace PassLock
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
-                
+            {
                 MessageBox.Show("Please fill up all the field in Locker");
-            
-            else        
-                
+            }
+            else
+            {
                 lockerTable.UserID = Int32.Parse(userID);
                 lockerTable.AccountName = textBox1.Text.Trim();
                 lockerTable.Username = textBox2.Text.Trim();
@@ -60,7 +61,7 @@ namespace PassLock
                 clear();
                 DataPopulate();
                 MessageBox.Show("Record Successfully added");
-            
+            }
         }
 
         void DataPopulate()
@@ -158,12 +159,27 @@ namespace PassLock
                 var saveFile = new SaveFileDialog();
                 saveFile.FileName = "ExportFile";
                 saveFile.DefaultExt = ".xlsx";
-                //File foramt
-                if (saveFile.ShowDialog() == DialogResult.OK)
-                    workbook.SaveAs(saveFile.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-                        Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-           
-                msapp.Quit();           
+            //File foramt
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                workbook.SaveAs(saveFile.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                    Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            }
+            msapp.Quit();           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dataGridView1.AutoGenerateColumns = false;
+            lockerTable.UserID = Int32.Parse(userID);
+            using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
+            {
+                sqlCon.Open();
+                SqlDataAdapter sdata = new SqlDataAdapter("SELECT * FROM [testdb].[dbo].[UserLocker] WHERE [UserID] = '" + lockerTable.UserID + "' and [AccountName] like '%"+ textBox4.Text+ "%'", sqlCon);
+                DataTable dataTable = new DataTable();
+                sdata.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
+            }
         }
     }
 }
