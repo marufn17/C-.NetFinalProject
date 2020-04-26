@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,9 +51,9 @@
             this.button8 = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,17 +68,17 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.AccountName,
-            this.AccountID,
             this.Username,
-            this.Password});
+            this.Password,
+            this.AccountID});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(16, 132);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Purple;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Purple;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(768, 306);
             this.dataGridView1.TabIndex = 0;
@@ -197,6 +197,7 @@
             this.button3.Text = "Delete";
             this.toolTip.SetToolTip(this.button3, "Select a record below and then click on delete to remove");
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -267,6 +268,7 @@
             this.button8.Text = "Export";
             this.toolTip.SetToolTip(this.button8, "Export to MS Excel");
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // AccountName
             // 
@@ -276,14 +278,6 @@
             this.AccountName.Name = "AccountName";
             this.AccountName.ReadOnly = true;
             this.AccountName.Width = 95;
-            // 
-            // AccountID
-            // 
-            this.AccountID.DataPropertyName = "AccountID";
-            this.AccountID.HeaderText = "Accoint ID";
-            this.AccountID.Name = "AccountID";
-            this.AccountID.ReadOnly = true;
-            this.AccountID.Visible = false;
             // 
             // Username
             // 
@@ -298,6 +292,14 @@
             this.Password.HeaderText = "Password";
             this.Password.Name = "Password";
             this.Password.ReadOnly = true;
+            // 
+            // AccountID
+            // 
+            this.AccountID.DataPropertyName = "AccountID";
+            this.AccountID.HeaderText = "Account ID";
+            this.AccountID.Name = "AccountID";
+            this.AccountID.ReadOnly = true;
+            this.AccountID.Visible = false;
             // 
             // HomePage
             // 
@@ -352,8 +354,8 @@
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountID;
     }
 }

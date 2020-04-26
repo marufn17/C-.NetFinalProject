@@ -123,7 +123,7 @@
             this.button1.Location = new System.Drawing.Point(162, 209);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -136,7 +136,7 @@
             this.button2.Location = new System.Drawing.Point(162, 351);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Sign Up";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -147,7 +147,7 @@
             this.textBox1.Location = new System.Drawing.Point(123, 148);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 11;
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -155,7 +155,7 @@
             this.textBox2.Location = new System.Drawing.Point(122, 176);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(207, 20);
-            this.textBox2.TabIndex = 12;
+            this.textBox2.TabIndex = 2;
             this.textBox2.UseSystemPasswordChar = true;
             // 
             // checkBox1
@@ -167,6 +167,7 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(53, 17);
             this.checkBox1.TabIndex = 13;
+            this.checkBox1.TabStop = false;
             this.checkBox1.Text = "Show";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -190,7 +191,7 @@
             this.button3.Location = new System.Drawing.Point(162, 288);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 15;
+            this.button3.TabIndex = 5;
             this.button3.Text = "Click Here";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -203,7 +204,7 @@
             this.button4.Location = new System.Drawing.Point(162, 247);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 24);
-            this.button4.TabIndex = 16;
+            this.button4.TabIndex = 4;
             this.button4.Text = "Click Here";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);

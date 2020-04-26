@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,12 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Entity;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace PassLock
 {
     public partial class HomePage : Form
-    {
-        //private string ConnectionString = @"Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true;";
+    {       
         public string userID;
         UserLocker lockerTable = new UserLocker();
         public HomePage()
@@ -42,11 +43,11 @@ namespace PassLock
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
-            {
+                
                 MessageBox.Show("Please fill up all the field in Locker");
-            }
-            else
-            {
+            
+            else        
+                
                 lockerTable.UserID = Int32.Parse(userID);
                 lockerTable.AccountName = textBox1.Text.Trim();
                 lockerTable.Username = textBox2.Text.Trim();
@@ -59,7 +60,7 @@ namespace PassLock
                 clear();
                 DataPopulate();
                 MessageBox.Show("Record Successfully added");
-            }
+            
         }
 
         void DataPopulate()
@@ -78,8 +79,7 @@ namespace PassLock
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow.Index != -1)
-            {                
+            if (dataGridView1.CurrentRow.Index != -1)                            
                 lockerTable.AccountID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["AccountID"].Value);
                 using (DBEntity db = new DBEntity())
                 {
@@ -87,8 +87,7 @@ namespace PassLock
                     textBox1.Text = lockerTable.AccountName;
                     textBox2.Text = lockerTable.Username;
                     textBox3.Text = lockerTable.Password;
-                }
-            }
+                }            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -114,6 +113,57 @@ namespace PassLock
                 DataPopulate();
                 MessageBox.Show("Record Successfully added");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure to delete this record permanently?", "Cofirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                using (DBEntity db = new DBEntity())
+                {
+                    var record = db.Entry(lockerTable);
+                    if (record.State == EntityState.Detached)
+                        db.UserLockers.Attach(lockerTable);
+                    db.UserLockers.Remove(lockerTable);
+                    db.SaveChanges();
+                    DataPopulate();
+                    clear();
+                    MessageBox.Show("Record deleted successfully.");
+                }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Excel._Application msapp = new Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = msapp.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            //Can be seen the process of writing in excel
+            //msapp.Visible = true;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "AccountsDetails";
+            //Put Header in excel
+            for (int i = 1; i < dataGridView1.Columns.Count; i++)
+                    worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+
+                //To put the datagrid data in excel
+                for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+                {
+                    for (int j = 0; j < dataGridView1.Columns.Count-1; j++)
+                    {
+                        worksheet.Cells[i+2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                //Pop up save file dailog box
+                var saveFile = new SaveFileDialog();
+                saveFile.FileName = "ExportFile";
+                saveFile.DefaultExt = ".xlsx";
+                //File foramt
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                    workbook.SaveAs(saveFile.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                        Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+           
+                msapp.Quit();           
         }
     }
 }

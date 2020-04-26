@@ -27,3 +27,4 @@ C:\Users\Oishi Ahmad\source\repos\PasswordManagement\PassLock\bin\Debug\EntityFr
 C:\Users\Oishi Ahmad\source\repos\PasswordManagement\PassLock\bin\Debug\EntityFramework.xml
 C:\Users\Oishi Ahmad\source\repos\PasswordManagement\PassLock\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Oishi Ahmad\source\repos\PasswordManagement\PassLock\obj\Debug\PassLock.HomePage.resources
+C:\Users\Oishi Ahmad\source\repos\PasswordManagement\PassLock\obj\Debug\PassLocker.csproj.ResolveComReference.cache
