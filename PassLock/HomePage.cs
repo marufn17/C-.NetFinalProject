@@ -118,18 +118,25 @@ namespace PassLock
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure to delete this record permanently?", "Cofirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                using (DBEntity db = new DBEntity())
-                {
-                    var record = db.Entry(lockerTable);
-                    if (record.State == EntityState.Detached)
-                        db.UserLockers.Attach(lockerTable);
-                    db.UserLockers.Remove(lockerTable);
-                    db.SaveChanges();
-                    DataPopulate();
-                    clear();
-                    MessageBox.Show("Record deleted successfully.");
-                }
+            if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
+            {
+                MessageBox.Show("Please select a record to delete");
+            }
+            else
+            {
+                if (MessageBox.Show("Are you sure to delete this record permanently?", "Cofirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    using (DBEntity db = new DBEntity())
+                    {
+                        var record = db.Entry(lockerTable);
+                        if (record.State == EntityState.Detached)
+                            db.UserLockers.Attach(lockerTable);
+                        db.UserLockers.Remove(lockerTable);
+                        db.SaveChanges();
+                        DataPopulate();
+                        clear();
+                        MessageBox.Show("Record deleted successfully.");
+                    }
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -180,6 +187,18 @@ namespace PassLock
                 sdata.Fill(dataTable);
                 dataGridView1.DataSource = dataTable;
             }
+        }
+
+        private void LogoutIcon_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure to logout?", "Cofirm Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                using (DBEntity db = new DBEntity())
+                {
+                    this.Hide();
+                    Login login = new Login();
+                    login.Show();
+                    MessageBox.Show("You have successfully Logged out. Thanks for using PassLocker");
+                }
         }
     }
 }
