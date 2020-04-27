@@ -12,27 +12,18 @@ namespace PassLock
         {
             InitializeComponent();
         }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            SignUp form2 = new SignUp();
-            form2.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        /*
+         * Login Functionality
+         */
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
             //login button to get into Home page
-            if (textBox1.Text.Length == 0)
+            if (textBox1.Text.Length == 0)//to check if username field is empty
             {
                 MessageBox.Show("Please enter your username");
             }
-            else if (textBox2.Text.Length == 0)
+            else if (textBox2.Text.Length == 0)//to check if password field is empty
             {
                 MessageBox.Show("Please enter your password");
             }
@@ -42,19 +33,19 @@ namespace PassLock
                 {
                     sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
                     sqlCon.Open();
-                    SqlDataAdapter sdata = new SqlDataAdapter("Select [Password],[userID],[FirstName],[LastName] from [testdb].[dbo].[Users] where [Username] = '" + textBox1.Text + "'", sqlCon);
+                    SqlDataAdapter sdata = new SqlDataAdapter("Select [Password],[userID],[FirstName],[LastName] from [testdb].[dbo].[Users] " +
+                        "where [Username] = '" + textBox1.Text + "'", sqlCon);
                     DataTable dataTable = new DataTable();
-                    sdata.Fill(dataTable);                    
-                    string answer1 = dataTable.Rows[0][0].ToString();
+                    sdata.Fill(dataTable);
+                    string answer1 = dataTable.Rows[0][0].ToString();//retrieve encrypted password from db
                     string answer1Hash = BCrypt.Net.BCrypt.HashPassword(textBox2.Text);
-                    if (BCrypt.Net.BCrypt.Verify(textBox2.Text, answer1) == true)
-                    {                        
+                    if (BCrypt.Net.BCrypt.Verify(textBox2.Text, answer1) == true)//verify retreived password with user entered password
+                    {
                         this.Hide();
                         HomePage home = new HomePage();
-                        home.userID = dataTable.Rows[0][1].ToString();
-                        home.label5.Text = "Welcome " + dataTable.Rows[0][2].ToString() + " " + dataTable.Rows[0][3].ToString();
+                        home.userID = dataTable.Rows[0][1].ToString();//Assign userID to the user to further use in home page
+                        home.label5.Text = "Welcome " + dataTable.Rows[0][2].ToString() + " " + dataTable.Rows[0][3].ToString();//it will pick up user name to show in Home page.
                         home.Show();
-                        
                     }
                     else
                     {
@@ -70,34 +61,51 @@ namespace PassLock
                 finally
                 {
                     sqlCon.Close();
-                }                
+                }
             }
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        /*
+         * It will take user to the username forgot page to retrieve the username
+         */
+        private void UsernameBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             Username form3 = new Username();
-            form3.Show();
+            form3.Show();//Shows username page.
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        /*
+         * It will take user to the pasword forgot page to reset the password
+         */    
+        private void PasswordBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             Password password = new Password();
-            password.Show();
+            password.Show();//shows password reset page.
         }
-
+        /* 
+         * Will take user to the signup page
+         */
+        private void SignupBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUp signUp = new SignUp();
+            signUp.Show();//shows signup page
+        }
+        /*
+         * it will shows and hide the password with checkbox response
+         */
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
             {
-                textBox2.UseSystemPasswordChar = false;
+                textBox2.UseSystemPasswordChar = false;//will show the password
             }
             else
             {
-                textBox2.UseSystemPasswordChar = true;
+                textBox2.UseSystemPasswordChar = true;//will hide password
             }
         }
+
+        
     }
 }

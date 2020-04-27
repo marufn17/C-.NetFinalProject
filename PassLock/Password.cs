@@ -15,8 +15,6 @@ namespace PassLock
             InitializeComponent();
         }
 
-
-
         bool isValidUsernameAndEmail()
         {
             sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
@@ -63,8 +61,7 @@ namespace PassLock
                 sqlCon.Close();
                 return false;
             }
-        }
-        
+        }        
 
         private void button1_Click(object sender, EventArgs e)
         {

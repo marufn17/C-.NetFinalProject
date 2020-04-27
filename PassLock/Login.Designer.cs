@@ -34,15 +34,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnlogin = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.SignupBtn = new System.Windows.Forms.Button();
+            this.LoginBtn = new System.Windows.Forms.Button();
+            this.UsernameBtn = new System.Windows.Forms.Button();
+            this.PasswordBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -115,32 +115,6 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Not Registered? Please Register now. Its totally free";
             // 
-            // btnlogin
-            // 
-            this.btnlogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnlogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlogin.ForeColor = System.Drawing.Color.Purple;
-            this.btnlogin.Location = new System.Drawing.Point(162, 209);
-            this.btnlogin.Name = "btnlogin";
-            this.btnlogin.Size = new System.Drawing.Size(75, 23);
-            this.btnlogin.TabIndex = 3;
-            this.btnlogin.Text = "Login";
-            this.btnlogin.UseVisualStyleBackColor = true;
-            this.btnlogin.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Purple;
-            this.button2.Location = new System.Drawing.Point(162, 351);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Sign Up";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -183,32 +157,6 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Forget Password?";
             // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Purple;
-            this.button3.Location = new System.Drawing.Point(162, 288);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Click Here";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Purple;
-            this.button4.Location = new System.Drawing.Point(162, 247);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 24);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Click Here";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -220,21 +168,73 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Forget Username?";
             // 
+            // SignupBtn
+            // 
+            this.SignupBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SignupBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignupBtn.ForeColor = System.Drawing.Color.Purple;
+            this.SignupBtn.Location = new System.Drawing.Point(162, 357);
+            this.SignupBtn.Name = "SignupBtn";
+            this.SignupBtn.Size = new System.Drawing.Size(75, 23);
+            this.SignupBtn.TabIndex = 19;
+            this.SignupBtn.Text = "Sign Up";
+            this.SignupBtn.UseVisualStyleBackColor = true;
+            this.SignupBtn.Click += new System.EventHandler(this.SignupBtn_Click);
+            // 
+            // LoginBtn
+            // 
+            this.LoginBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LoginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginBtn.ForeColor = System.Drawing.Color.Purple;
+            this.LoginBtn.Location = new System.Drawing.Point(162, 210);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Size = new System.Drawing.Size(75, 24);
+            this.LoginBtn.TabIndex = 20;
+            this.LoginBtn.Text = "Login";
+            this.LoginBtn.UseVisualStyleBackColor = true;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
+            // 
+            // UsernameBtn
+            // 
+            this.UsernameBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UsernameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameBtn.ForeColor = System.Drawing.Color.Purple;
+            this.UsernameBtn.Location = new System.Drawing.Point(162, 247);
+            this.UsernameBtn.Name = "UsernameBtn";
+            this.UsernameBtn.Size = new System.Drawing.Size(75, 24);
+            this.UsernameBtn.TabIndex = 21;
+            this.UsernameBtn.Text = "Click Here";
+            this.UsernameBtn.UseVisualStyleBackColor = true;
+            this.UsernameBtn.Click += new System.EventHandler(this.UsernameBtn_Click);
+            // 
+            // PasswordBtn
+            // 
+            this.PasswordBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PasswordBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordBtn.ForeColor = System.Drawing.Color.Purple;
+            this.PasswordBtn.Location = new System.Drawing.Point(162, 288);
+            this.PasswordBtn.Name = "PasswordBtn";
+            this.PasswordBtn.Size = new System.Drawing.Size(75, 23);
+            this.PasswordBtn.TabIndex = 22;
+            this.PasswordBtn.Text = "Click Here";
+            this.PasswordBtn.UseVisualStyleBackColor = true;
+            this.PasswordBtn.Click += new System.EventHandler(this.PasswordBtn_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Purple;
             this.ClientSize = new System.Drawing.Size(403, 401);
+            this.Controls.Add(this.PasswordBtn);
+            this.Controls.Add(this.UsernameBtn);
+            this.Controls.Add(this.LoginBtn);
+            this.Controls.Add(this.SignupBtn);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnlogin);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -257,15 +257,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnlogin;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button SignupBtn;
+        private System.Windows.Forms.Button LoginBtn;
+        private System.Windows.Forms.Button UsernameBtn;
+        private System.Windows.Forms.Button PasswordBtn;
     }
 }
 
