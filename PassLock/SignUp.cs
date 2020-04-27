@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
-
 namespace PassLock
 {
     public partial class SignUp : Form
@@ -14,7 +13,6 @@ namespace PassLock
         {
             InitializeComponent();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             //Hide current form
@@ -23,7 +21,6 @@ namespace PassLock
             //it will take user to the login page
             form1.Show();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             //To check inserted username only has alphanumeric value or not
@@ -35,27 +32,28 @@ namespace PassLock
             if (textBox4.Text.Length > 7 && HasSpecialChars(textBox4.Text) == false)
             {
                 label11.Visible = false;
-                sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
-                sqlCon.Open();
-                SqlCommand sqlcmd = new SqlCommand();
-                //To compare if the inserted username already exist
-                sqlcmd.CommandText = "Select * from [testdb].[dbo].[Users] where Username=@uName";
-                sqlcmd.Parameters.AddWithValue("@uName", textBox4.Text);
-                sqlcmd.Connection = sqlCon;
-                SqlDataReader sdata = sqlcmd.ExecuteReader();
-                if (sdata.HasRows)
+                using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
                 {
-                    label10.Visible = true;
-                    label10.Text = "Username already exist";
-                    label10.ForeColor = System.Drawing.Color.Red;                    
+                    sqlCon.Open();
+                    SqlCommand sqlcmd = new SqlCommand();
+                    //To compare if the inserted username already exist
+                    sqlcmd.CommandText = "Select * from [testdb].[dbo].[Users] where Username=@uName";
+                    sqlcmd.Parameters.AddWithValue("@uName", textBox4.Text);
+                    sqlcmd.Connection = sqlCon;
+                    SqlDataReader sdata = sqlcmd.ExecuteReader();
+                    if (sdata.HasRows)
+                    {
+                        label10.Visible = true;
+                        label10.Text = "Username already exist";
+                        label10.ForeColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        label10.Visible = true;
+                        label10.Text = "Username available!";
+                        label10.ForeColor = System.Drawing.Color.Green;
+                    }
                 }
-                else
-                {
-                    label10.Visible = true;
-                    label10.Text = "Username available!";
-                    label10.ForeColor = System.Drawing.Color.Green;
-                }
-                sqlCon.Close();
             }
             //If username insert more than 7 characters but username has special charachter
             else if (textBox4.Text.Length > 7 && HasSpecialChars(textBox4.Text) == true)
@@ -73,7 +71,6 @@ namespace PassLock
                 label11.ForeColor = System.Drawing.Color.Red;
             }            
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //To check inserted username only has alphanumeric value or not
@@ -148,29 +145,27 @@ namespace PassLock
                 {
                     return true;
                 }
-            }
-            
+            }            
             bool isEmailUnique()
             {
-                sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
-                sqlCon.Open();
-                SqlCommand sqlcmd = new SqlCommand();
-                //To compare if the inserted username already exist
-                sqlcmd.CommandText = "Select * from [testdb].[dbo].[Users] where Email=@email";
-                sqlcmd.Parameters.AddWithValue("@email", textBox3.Text);
-                sqlcmd.Connection = sqlCon;
-                SqlDataReader sdata = sqlcmd.ExecuteReader();
-                if (sdata.HasRows)
+                using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
                 {
-                    sqlCon.Close();
-                    return false;
+                    sqlCon.Open();
+                    SqlCommand sqlcmd = new SqlCommand();
+                    //To compare if the inserted username already exist
+                    sqlcmd.CommandText = "Select * from [testdb].[dbo].[Users] where Email=@email";
+                    sqlcmd.Parameters.AddWithValue("@email", textBox3.Text);
+                    sqlcmd.Connection = sqlCon;
+                    SqlDataReader sdata = sqlcmd.ExecuteReader();
+                    if (sdata.HasRows)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                else
-                {
-                    sqlCon.Close();
-                    return true;
-                }
-
             }
             //If user insert alphanumeric value more than 7 characters
             if (textBox4.Text.Length > 7 && HasSpecialChars(textBox4.Text) == false)
@@ -224,33 +219,34 @@ namespace PassLock
                             else
                             {
                                 label12.Visible = false;
-                                sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
-                                sqlCon.Open();
-                                SqlCommand sqlcmd = new SqlCommand();
-                                //To compare if the inserted username already exist
-                                sqlcmd.CommandText = "Insert into [testdb].[dbo].[Users] Values (@firstname,@lastname,@email,@username,@password,@q1,@answer1,@q2,@answer2)";
-                                sqlcmd.Parameters.AddWithValue("@firstname", textBox1.Text);
-                                sqlcmd.Parameters.AddWithValue("@lastname", textBox2.Text);
-                                sqlcmd.Parameters.AddWithValue("@email", textBox3.Text);
-                                sqlcmd.Parameters.AddWithValue("@username", textBox4.Text);
-                                //encrypt user password
-                                string passwordHash = BCrypt.Net.BCrypt.HashPassword(textBox5.Text);
-                                sqlcmd.Parameters.AddWithValue("@password", passwordHash);
-                                sqlcmd.Parameters.AddWithValue("@q1", comboBox1.Text);
-                                //encrypt user answer1
-                                string answer1Hash = BCrypt.Net.BCrypt.HashPassword(textBox8.Text.ToLower());
-                                sqlcmd.Parameters.AddWithValue("@answer1", answer1Hash);
-                                sqlcmd.Parameters.AddWithValue("@q2", comboBox2.Text);
-                                //encrypt user answer2
-                                string answer2Hash = BCrypt.Net.BCrypt.HashPassword(textBox7.Text.ToLower());
-                                sqlcmd.Parameters.AddWithValue("@answer2", answer2Hash);
-                                sqlcmd.Connection = sqlCon;
-                                SqlDataReader sdata = sqlcmd.ExecuteReader();
-                                MessageBox.Show("Registration successfull. Please login by using your username and password");
-                                this.Hide();
-                                Login form1 = new Login();
-                                form1.Show();
-                                sqlCon.Close();
+                                using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
+                                {
+                                    sqlCon.Open();
+                                    SqlCommand sqlcmd = new SqlCommand();
+                                    //To compare if the inserted username already exist
+                                    sqlcmd.CommandText = "Insert into [testdb].[dbo].[Users] Values (@firstname,@lastname,@email,@username,@password,@q1,@answer1,@q2,@answer2)";
+                                    sqlcmd.Parameters.AddWithValue("@firstname", textBox1.Text);
+                                    sqlcmd.Parameters.AddWithValue("@lastname", textBox2.Text);
+                                    sqlcmd.Parameters.AddWithValue("@email", textBox3.Text);
+                                    sqlcmd.Parameters.AddWithValue("@username", textBox4.Text);
+                                    //encrypt user password
+                                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(textBox5.Text);
+                                    sqlcmd.Parameters.AddWithValue("@password", passwordHash);
+                                    sqlcmd.Parameters.AddWithValue("@q1", comboBox1.Text);
+                                    //encrypt user answer1
+                                    string answer1Hash = BCrypt.Net.BCrypt.HashPassword(textBox8.Text.ToLower());
+                                    sqlcmd.Parameters.AddWithValue("@answer1", answer1Hash);
+                                    sqlcmd.Parameters.AddWithValue("@q2", comboBox2.Text);
+                                    //encrypt user answer2
+                                    string answer2Hash = BCrypt.Net.BCrypt.HashPassword(textBox7.Text.ToLower());
+                                    sqlcmd.Parameters.AddWithValue("@answer2", answer2Hash);
+                                    sqlcmd.Connection = sqlCon;
+                                    SqlDataReader sdata = sqlcmd.ExecuteReader();
+                                    MessageBox.Show("Registration successfull. Please login by using your username and password");
+                                    this.Hide();
+                                    Login form1 = new Login();
+                                    form1.Show();
+                                }
                             }
                         }
                         else
@@ -266,7 +262,6 @@ namespace PassLock
                         label12.Text = "Invalid password combination!! Please follow passwod Hints.";
                         label12.ForeColor = System.Drawing.Color.Red;
                     }
-
                 }
                 else
                 {
@@ -302,7 +297,6 @@ namespace PassLock
                 textBox6.Text = null;
             }
         }
-
         private void textBox3_Leave(object sender, EventArgs e)
         {
             string email = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +

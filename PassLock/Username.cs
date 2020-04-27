@@ -49,7 +49,6 @@ namespace PassLock
             Login f1 = new Login();
             f1.Show();//Login page shows
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             try

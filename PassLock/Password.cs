@@ -7,9 +7,7 @@ using System.Data.SqlClient;
 namespace PassLock
 {
     public partial class Password : Form
-    {
-        public static SqlConnection sqlCon;
-
+    {  
         public Password()
         {
             InitializeComponent();
@@ -36,55 +34,59 @@ namespace PassLock
                 }
             }
         }
-
         bool isBothAnswerCorrect()
         {
-            sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
-            sqlCon.Open();
-            SqlDataAdapter sdata = new SqlDataAdapter("Select [Answer1],[Answer2] FROM [testdb].[dbo].[Users]" +
-                " where Username='" + textBox1.Text + "'", sqlCon);
-            DataTable dataTable = new DataTable();
-            sdata.Fill(dataTable);
-            string answer1 = dataTable.Rows[0][0].ToString();
-            string answer2 = dataTable.Rows[0][1].ToString();
-            string answer1Hash = BCrypt.Net.BCrypt.HashPassword(textBox4.Text);
-            string answer2Hash = BCrypt.Net.BCrypt.HashPassword(textBox3.Text);
+            using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
+            {                
+                sqlCon.Open();
+                SqlDataAdapter sdata = new SqlDataAdapter("Select [Answer1],[Answer2] FROM [testdb].[dbo].[Users]" +
+                    " where Username='" + textBox1.Text + "'", sqlCon);
+                DataTable dataTable = new DataTable();
+                sdata.Fill(dataTable);
+                string answer1 = dataTable.Rows[0][0].ToString();
+                string answer2 = dataTable.Rows[0][1].ToString();
+                string answer1Hash = BCrypt.Net.BCrypt.HashPassword(textBox4.Text);
+                string answer2Hash = BCrypt.Net.BCrypt.HashPassword(textBox3.Text);
 
-            if (BCrypt.Net.BCrypt.Verify(textBox4.Text.ToLower(), answer1) == true && BCrypt.Net.BCrypt.Verify(textBox3.Text.ToLower(), answer2) == true)
-            {
-                sqlCon.Close();
-                return true;
+                if (BCrypt.Net.BCrypt.Verify(textBox4.Text.ToLower(), answer1) == true && BCrypt.Net.BCrypt.Verify(textBox3.Text.ToLower(), answer2) == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                sqlCon.Close();
-                return false;
-            }
-        }        
-
+        }
+        /*
+         * will take to the security question section if username and email is valid
+         */
         private void button1_Click(object sender, EventArgs e)
         {
             label7.Visible = false;
             if (isValidUsernameAndEmail() == true)
             {
-                sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
-                sqlCon.Open();
-                SqlDataAdapter sdata = new SqlDataAdapter("Select [Q1],[Q2] FROM [testdb].[dbo].[Users]" +
-                    " where Username='" + textBox1.Text + "'", sqlCon);
-                DataTable dataTable = new DataTable();
-                sdata.Fill(dataTable);
-                label4.Text = dataTable.Rows[0][0].ToString();
-                label3.Text = dataTable.Rows[0][1].ToString();
-                panelMid.Left = 62;
-                panelLeft.Left = 454;
-                sqlCon.Close();
+                using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
+                {                    
+                    sqlCon.Open();
+                    SqlDataAdapter sdata = new SqlDataAdapter("Select [Q1],[Q2] FROM [testdb].[dbo].[Users]" +
+                        " where Username='" + textBox1.Text + "'", sqlCon);
+                    DataTable dataTable = new DataTable();
+                    sdata.Fill(dataTable);
+                    label4.Text = dataTable.Rows[0][0].ToString();
+                    label3.Text = dataTable.Rows[0][1].ToString();
+                    panelMid.Left = 62;
+                    panelLeft.Left = 454;                    
+                }
             }
             else
             {
                 label7.Visible = true;
             }
         }
-
+        /*
+         * will take to the input new password section if user's security answer is correct
+         */
         private void button2_Click(object sender, EventArgs e)
         {
             label7.Visible = false;
@@ -116,12 +118,10 @@ namespace PassLock
         {
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
         }
-
         bool isDigit(char c)
         {
             return c >= '0' && c <= '9';
         }
-
         bool isSymbol(char c)
         {
             return c > 32 && c < 127 && !isDigit(c) && !isLetter(c);
@@ -133,7 +133,6 @@ namespace PassLock
                password.Any(c => isDigit(c)) &&
                password.Any(c => isSymbol(c));
         }
-
         private void textBox6_Leave(object sender, EventArgs e)
         {
             label7.Visible = false;
@@ -155,8 +154,10 @@ namespace PassLock
                 label7.Text = "       Space cannot be used in password";
                 label8.ForeColor = System.Drawing.Color.Red;
             }
-
         }
+        /*
+         * will submit user's new password to the system with condition matched
+         */
         private void button3_Click(object sender, EventArgs e)
         {
             label7.Visible = false;
@@ -167,22 +168,23 @@ namespace PassLock
                     label8.ForeColor = System.Drawing.Color.Black;
                     if (textBox6.Text == textBox5.Text)
                     {
-                        sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
-                        sqlCon.Open();
-                        SqlCommand sqlcmd = new SqlCommand();
-                        //To compare if the inserted username already exist
-                        sqlcmd.CommandText = "Update [testdb].[dbo].[Users] SET [Password] = @password Where [Username] = @username";                        
-                        sqlcmd.Parameters.AddWithValue("@username", textBox1.Text);
-                        //encrypt user password
-                        string passwordHash = BCrypt.Net.BCrypt.HashPassword(textBox5.Text);
-                        sqlcmd.Parameters.AddWithValue("@password", passwordHash);
-                        sqlcmd.Connection = sqlCon;
-                        SqlDataReader sdata = sqlcmd.ExecuteReader();
-                        MessageBox.Show("Password has been changed successfully. Please login by using your username and password");
-                        this.Hide();
-                        Login form1 = new Login();
-                        form1.Show();
-                        sqlCon.Close();
+                        using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
+                        {
+                            sqlCon.Open();
+                            SqlCommand sqlcmd = new SqlCommand();
+                            //To compare if the inserted username already exist
+                            sqlcmd.CommandText = "Update [testdb].[dbo].[Users] SET [Password] = @password Where [Username] = @username";
+                            sqlcmd.Parameters.AddWithValue("@username", textBox1.Text);
+                            //encrypt user password
+                            string passwordHash = BCrypt.Net.BCrypt.HashPassword(textBox5.Text);
+                            sqlcmd.Parameters.AddWithValue("@password", passwordHash);
+                            sqlcmd.Connection = sqlCon;
+                            SqlDataReader sdata = sqlcmd.ExecuteReader();
+                            MessageBox.Show("Password has been changed successfully. Please login by using your username and password");
+                            this.Hide();
+                            Login form1 = new Login();
+                            form1.Show();
+                        }
                     }
                     else
                     {                        
@@ -201,9 +203,7 @@ namespace PassLock
                 label7.Text = "       Space cannot be used in password";
                 label8.ForeColor = System.Drawing.Color.Red;
             }
-
         }
-
         private void textBox5_Leave(object sender, EventArgs e)
         {
             label7.Visible = false;
@@ -217,7 +217,9 @@ namespace PassLock
                 label7.Visible = false;
             }
         }
-
+        /*
+         * Will take back to Login page
+         */
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();

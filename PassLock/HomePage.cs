@@ -22,19 +22,16 @@ namespace PassLock
         {
             InitializeComponent();
         }
-
         public void clear()
         {
             textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = "";
             lockerTable.AccountID = 0;
-        }  
-
+        } 
         private void HomePage_Load(object sender, EventArgs e)
         {
             clear();
             DataPopulate();
-        }      
-
+        }
         private void AddBtn_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
@@ -57,7 +54,6 @@ namespace PassLock
                 MessageBox.Show("Record Successfully added");
             }
         }
-
         void DataPopulate()
         {
             dataGridView1.AutoGenerateColumns = false;
@@ -71,7 +67,6 @@ namespace PassLock
                 dataGridView1.DataSource = dataTable;
             }
         }
-
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow.Index != -1)                            
@@ -83,8 +78,7 @@ namespace PassLock
                     textBox2.Text = lockerTable.Username;
                     textBox3.Text = lockerTable.Password;
                 }            
-        }      
-
+        }  
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
@@ -109,7 +103,6 @@ namespace PassLock
                 MessageBox.Show("Record Successfully added");
             }
         }
-
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
@@ -119,6 +112,7 @@ namespace PassLock
             else
             {
                 if (MessageBox.Show("Are you sure to delete this record permanently?", "Cofirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
                     using (DBEntity db = new DBEntity())
                     {
                         var record = db.Entry(lockerTable);
@@ -130,9 +124,9 @@ namespace PassLock
                         clear();
                         MessageBox.Show("Record deleted successfully.");
                     }
+                }
             }
         }
-
         private void ExportBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure to Export the file ?", "Cofirm Export", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -171,7 +165,6 @@ namespace PassLock
                 msapp.Quit();
             }
         }
-
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
@@ -185,10 +178,10 @@ namespace PassLock
                 dataGridView1.DataSource = dataTable;
             }
         }
-
         private void LogoutIcon_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure to logout?", "Cofirm Logout", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
                 using (DBEntity db = new DBEntity())
                 {
                     this.Hide();
@@ -196,14 +189,12 @@ namespace PassLock
                     login.Show();
                     MessageBox.Show("You have successfully Logged out. Thanks for using PassLocker");
                 }
+            }
         }
-
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             clear();
             DataPopulate();
-        }
-
-       
+        }       
     }
 }
