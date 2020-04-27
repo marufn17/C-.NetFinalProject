@@ -14,27 +14,26 @@ namespace PassLock
         {
             InitializeComponent();
         }
-
         bool isValidUsernameAndEmail()
         {
-            sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
-            sqlCon.Open();
-            SqlCommand sqlcmd = new SqlCommand();
-            //To compare if the inserted username already exist
-            sqlcmd.CommandText = "Select * from [testdb].[dbo].[Users] where Email=@email and Username=@username";
-            sqlcmd.Parameters.AddWithValue("@email", textBox2.Text);
-            sqlcmd.Parameters.AddWithValue("@username", textBox1.Text);
-            sqlcmd.Connection = sqlCon;
-            SqlDataReader sdata = sqlcmd.ExecuteReader();
-            if (sdata.HasRows)
+            using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
             {
-                sqlCon.Close();
-                return true;
-            }
-            else
-            {
-                sqlCon.Close();
-                return false;
+                sqlCon.Open();
+                SqlCommand sqlcmd = new SqlCommand();
+                //To compare if the inserted username already exist
+                sqlcmd.CommandText = "Select * from [testdb].[dbo].[Users] where Email=@email and Username=@username";
+                sqlcmd.Parameters.AddWithValue("@email", textBox2.Text);
+                sqlcmd.Parameters.AddWithValue("@username", textBox1.Text);
+                sqlcmd.Connection = sqlCon;
+                SqlDataReader sdata = sqlcmd.ExecuteReader();
+                if (sdata.HasRows)
+                {                    
+                    return true;
+                }
+                else
+                {                    
+                    return false;
+                }
             }
         }
 
@@ -76,8 +75,8 @@ namespace PassLock
                 sdata.Fill(dataTable);
                 label4.Text = dataTable.Rows[0][0].ToString();
                 label3.Text = dataTable.Rows[0][1].ToString();
-                panelMid.Left = 48;
-                panelLeft.Left = 387;
+                panelMid.Left = 62;
+                panelLeft.Left = 454;
                 sqlCon.Close();
             }
             else
@@ -99,8 +98,8 @@ namespace PassLock
             {
                 if (isBothAnswerCorrect() == true)
                 {
-                    panelRight.Left = 48;
-                    panelLeft.Left = 722;
+                    panelRight.Left = 62;
+                    panelLeft.Left = 841;
                 }
                 else
                 {

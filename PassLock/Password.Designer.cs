@@ -62,9 +62,9 @@
             this.panelLeft.Controls.Add(this.textBox1);
             this.panelLeft.Controls.Add(this.label2);
             this.panelLeft.Controls.Add(this.label1);
-            this.panelLeft.Location = new System.Drawing.Point(48, 36);
+            this.panelLeft.Location = new System.Drawing.Point(62, 89);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(277, 194);
+            this.panelLeft.Size = new System.Drawing.Size(277, 229);
             this.panelLeft.TabIndex = 0;
             // 
             // button4
@@ -130,9 +130,9 @@
             this.panelMid.Controls.Add(this.textBox4);
             this.panelMid.Controls.Add(this.label3);
             this.panelMid.Controls.Add(this.label4);
-            this.panelMid.Location = new System.Drawing.Point(385, 36);
+            this.panelMid.Location = new System.Drawing.Point(454, 89);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(277, 194);
+            this.panelMid.Size = new System.Drawing.Size(277, 229);
             this.panelMid.TabIndex = 1;
             // 
             // button2
@@ -185,16 +185,16 @@
             this.panelRight.Controls.Add(this.textBox6);
             this.panelRight.Controls.Add(this.label5);
             this.panelRight.Controls.Add(this.label6);
-            this.panelRight.Location = new System.Drawing.Point(722, 12);
+            this.panelRight.Location = new System.Drawing.Point(841, 85);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(277, 218);
+            this.panelRight.Size = new System.Drawing.Size(277, 233);
             this.panelRight.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(25, 183);
+            this.label8.Location = new System.Drawing.Point(25, 192);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(231, 26);
             this.label8.TabIndex = 6;
@@ -254,7 +254,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(57, 241);
+            this.label7.Location = new System.Drawing.Point(68, 330);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(259, 13);
             this.label7.TabIndex = 3;
@@ -266,7 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Purple;
-            this.ClientSize = new System.Drawing.Size(377, 278);
+            this.ClientSize = new System.Drawing.Size(403, 401);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelMid);

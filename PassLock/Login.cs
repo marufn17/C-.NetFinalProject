@@ -11,8 +11,7 @@ namespace PassLock
         public Login()
         {
             InitializeComponent();
-        }
-        
+        }        
         /*
          * Login Functionality
          */
@@ -104,8 +103,6 @@ namespace PassLock
             {
                 textBox2.UseSystemPasswordChar = true;//will hide password
             }
-        }
-
-        
+        }        
     }
 }
