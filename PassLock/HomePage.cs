@@ -24,7 +24,7 @@ namespace PassLock
         }
         public void clear()
         {
-            textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = "";
+            AccountTB.Text = UsernameTB.Text = PasswordTB.Text = SearchTB.Text = "";
             lockerTable.AccountID = 0;
         } 
         private void HomePage_Load(object sender, EventArgs e)
@@ -34,16 +34,16 @@ namespace PassLock
         }
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
+            if (AccountTB.Text.Length == 0 || UsernameTB.Text.Length == 0 || PasswordTB.Text.Length == 0)
             {
                 MessageBox.Show("Please fill up all the field in Locker");
             }
             else
             {
                 lockerTable.UserID = Int32.Parse(userID);
-                lockerTable.AccountName = textBox1.Text.Trim();
-                lockerTable.Username = textBox2.Text.Trim();
-                lockerTable.Password = textBox3.Text.Trim();
+                lockerTable.AccountName = AccountTB.Text.Trim();
+                lockerTable.Username = UsernameTB.Text.Trim();
+                lockerTable.Password = PasswordTB.Text.Trim();
                 using (DBEntity db = new DBEntity())
                 {
                     db.UserLockers.Add(lockerTable);
@@ -74,23 +74,23 @@ namespace PassLock
                 using (DBEntity db = new DBEntity())
                 {
                     lockerTable = db.UserLockers.Where(x => x.AccountID == lockerTable.AccountID).FirstOrDefault();
-                    textBox1.Text = lockerTable.AccountName;
-                    textBox2.Text = lockerTable.Username;
-                    textBox3.Text = lockerTable.Password;
+                    AccountTB.Text = lockerTable.AccountName;
+                    UsernameTB.Text = lockerTable.Username;
+                    PasswordTB.Text = lockerTable.Password;
                 }            
         }  
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
+            if (AccountTB.Text.Length == 0 || UsernameTB.Text.Length == 0 || PasswordTB.Text.Length == 0)
             {
                 MessageBox.Show("Please select a record to update");
             }
             else
             {
                 lockerTable.UserID = Int32.Parse(userID);
-                lockerTable.AccountName = textBox1.Text.Trim();
-                lockerTable.Username = textBox2.Text.Trim();
-                lockerTable.Password = textBox3.Text.Trim();
+                lockerTable.AccountName = AccountTB.Text.Trim();
+                lockerTable.Username = UsernameTB.Text.Trim();
+                lockerTable.Password = PasswordTB.Text.Trim();
                 using (DBEntity db = new DBEntity())
                 {
                     if (lockerTable.AccountID == 0)
@@ -105,7 +105,7 @@ namespace PassLock
         }
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0 || textBox2.Text.Length == 0 || textBox3.Text.Length == 0)
+            if (AccountTB.Text.Length == 0 || UsernameTB.Text.Length == 0 || PasswordTB.Text.Length == 0)
             {
                 MessageBox.Show("Please select a record to delete");
             }
@@ -172,7 +172,7 @@ namespace PassLock
             using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
             {
                 sqlCon.Open();
-                SqlDataAdapter sdata = new SqlDataAdapter("SELECT * FROM [testdb].[dbo].[UserLocker] WHERE [UserID] = '" + lockerTable.UserID + "' and [AccountName] like '%" + textBox4.Text + "%'", sqlCon);
+                SqlDataAdapter sdata = new SqlDataAdapter("SELECT * FROM [testdb].[dbo].[UserLocker] WHERE [UserID] = '" + lockerTable.UserID + "' and [AccountName] like '%" + SearchTB.Text + "%'", sqlCon);
                 DataTable dataTable = new DataTable();
                 sdata.Fill(dataTable);
                 dataGridView1.DataSource = dataTable;

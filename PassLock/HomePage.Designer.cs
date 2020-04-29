@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,15 +37,15 @@
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.AccountTB = new System.Windows.Forms.TextBox();
+            this.UsernameTB = new System.Windows.Forms.TextBox();
+            this.PasswordTB = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LogoutIcon = new System.Windows.Forms.PictureBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.SearchTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.ClearBtn = new System.Windows.Forms.Button();
@@ -75,10 +75,10 @@
             this.dataGridView1.Location = new System.Drawing.Point(16, 132);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Purple;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Purple;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(768, 306);
             this.dataGridView1.TabIndex = 0;
@@ -126,26 +126,26 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "PassLocker";
             // 
-            // textBox1
+            // AccountTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 20);
-            this.textBox1.TabIndex = 5;
+            this.AccountTB.Location = new System.Drawing.Point(97, 19);
+            this.AccountTB.Name = "AccountTB";
+            this.AccountTB.Size = new System.Drawing.Size(172, 20);
+            this.AccountTB.TabIndex = 5;
             // 
-            // textBox2
+            // UsernameTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(97, 49);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(172, 20);
-            this.textBox2.TabIndex = 6;
+            this.UsernameTB.Location = new System.Drawing.Point(97, 49);
+            this.UsernameTB.Name = "UsernameTB";
+            this.UsernameTB.Size = new System.Drawing.Size(172, 20);
+            this.UsernameTB.TabIndex = 6;
             // 
-            // textBox3
+            // PasswordTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(97, 79);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(172, 20);
-            this.textBox3.TabIndex = 7;
+            this.PasswordTB.Location = new System.Drawing.Point(97, 79);
+            this.PasswordTB.Name = "PasswordTB";
+            this.PasswordTB.Size = new System.Drawing.Size(172, 20);
+            this.PasswordTB.TabIndex = 7;
             // 
             // groupBox1
             // 
@@ -153,9 +153,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.AccountTB);
+            this.groupBox1.Controls.Add(this.PasswordTB);
+            this.groupBox1.Controls.Add(this.UsernameTB);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Location = new System.Drawing.Point(154, 12);
             this.groupBox1.Name = "groupBox1";
@@ -205,14 +205,14 @@
             this.toolTip.SetToolTip(this.LogoutIcon, "Logut");
             this.LogoutIcon.Click += new System.EventHandler(this.LogoutIcon_Click);
             // 
-            // textBox4
+            // SearchTB
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.textBox4.Location = new System.Drawing.Point(638, 57);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 36);
-            this.textBox4.TabIndex = 15;
+            this.SearchTB.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.SearchTB.Location = new System.Drawing.Point(638, 57);
+            this.SearchTB.Multiline = true;
+            this.SearchTB.Name = "SearchTB";
+            this.SearchTB.Size = new System.Drawing.Size(146, 36);
+            this.SearchTB.TabIndex = 15;
             // 
             // label5
             // 
@@ -316,7 +316,7 @@
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.SearchTB);
             this.Controls.Add(this.LogoutIcon);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -338,15 +338,15 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox AccountTB;
+        private System.Windows.Forms.TextBox UsernameTB;
+        private System.Windows.Forms.TextBox PasswordTB;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox LogoutIcon;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox SearchTB;
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
