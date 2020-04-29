@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.panelLeft = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.FirstNextBtn = new System.Windows.Forms.Button();
+            this.EmailTB = new System.Windows.Forms.TextBox();
+            this.usernameTB = new System.Windows.Forms.TextBox();
+            this.Email_label = new System.Windows.Forms.Label();
+            this.Username_label = new System.Windows.Forms.Label();
             this.panelMid = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.SecondNextBtn = new System.Windows.Forms.Button();
+            this.Answer2TB = new System.Windows.Forms.TextBox();
+            this.Answer1TB = new System.Windows.Forms.TextBox();
+            this.Q2_label = new System.Windows.Forms.Label();
+            this.Q1_label = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.PasswordHint_label = new System.Windows.Forms.Label();
+            this.SubmitBtn = new System.Windows.Forms.Button();
+            this.ConfirmPasswordTB = new System.Windows.Forms.TextBox();
+            this.PasswordTB = new System.Windows.Forms.TextBox();
+            this.ConfirmPassword_label = new System.Windows.Forms.Label();
+            this.Password_label = new System.Windows.Forms.Label();
+            this.BottomWarning = new System.Windows.Forms.Label();
+            this.BackToLoginPageBTN = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panelRight.SuspendLayout();
@@ -56,210 +56,209 @@
             // 
             // panelLeft
             // 
-            this.panelLeft.Controls.Add(this.button4);
-            this.panelLeft.Controls.Add(this.button1);
-            this.panelLeft.Controls.Add(this.textBox2);
-            this.panelLeft.Controls.Add(this.textBox1);
-            this.panelLeft.Controls.Add(this.label2);
-            this.panelLeft.Controls.Add(this.label1);
+            this.panelLeft.Controls.Add(this.FirstNextBtn);
+            this.panelLeft.Controls.Add(this.EmailTB);
+            this.panelLeft.Controls.Add(this.usernameTB);
+            this.panelLeft.Controls.Add(this.Email_label);
+            this.panelLeft.Controls.Add(this.Username_label);
             this.panelLeft.Location = new System.Drawing.Point(62, 89);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(277, 229);
             this.panelLeft.TabIndex = 0;
             // 
-            // button4
+            // FirstNextBtn
             // 
-            this.button4.ForeColor = System.Drawing.Color.Purple;
-            this.button4.Location = new System.Drawing.Point(28, 154);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "<< Back";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.FirstNextBtn.ForeColor = System.Drawing.Color.Purple;
+            this.FirstNextBtn.Location = new System.Drawing.Point(169, 154);
+            this.FirstNextBtn.Name = "FirstNextBtn";
+            this.FirstNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.FirstNextBtn.TabIndex = 3;
+            this.FirstNextBtn.Text = "Next >>";
+            this.FirstNextBtn.UseVisualStyleBackColor = true;
+            this.FirstNextBtn.Click += new System.EventHandler(this.FirstNextBtn_Click);
             // 
-            // button1
+            // EmailTB
             // 
-            this.button1.ForeColor = System.Drawing.Color.Purple;
-            this.button1.Location = new System.Drawing.Point(169, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Next >>";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.EmailTB.Location = new System.Drawing.Point(28, 115);
+            this.EmailTB.Name = "EmailTB";
+            this.EmailTB.Size = new System.Drawing.Size(216, 20);
+            this.EmailTB.TabIndex = 2;
             // 
-            // textBox2
+            // usernameTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(28, 115);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 20);
-            this.textBox2.TabIndex = 3;
+            this.usernameTB.Location = new System.Drawing.Point(28, 47);
+            this.usernameTB.Name = "usernameTB";
+            this.usernameTB.Size = new System.Drawing.Size(216, 20);
+            this.usernameTB.TabIndex = 1;
             // 
-            // textBox1
+            // Email_label
             // 
-            this.textBox1.Location = new System.Drawing.Point(28, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 20);
-            this.textBox1.TabIndex = 2;
+            this.Email_label.AutoSize = true;
+            this.Email_label.ForeColor = System.Drawing.Color.White;
+            this.Email_label.Location = new System.Drawing.Point(25, 85);
+            this.Email_label.Name = "Email_label";
+            this.Email_label.Size = new System.Drawing.Size(122, 13);
+            this.Email_label.TabIndex = 1;
+            this.Email_label.Text = "Please enter your email :";
             // 
-            // label2
+            // Username_label
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(25, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Please enter your email :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(25, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Please enter your username :";
+            this.Username_label.AutoSize = true;
+            this.Username_label.ForeColor = System.Drawing.Color.White;
+            this.Username_label.Location = new System.Drawing.Point(25, 19);
+            this.Username_label.Name = "Username_label";
+            this.Username_label.Size = new System.Drawing.Size(144, 13);
+            this.Username_label.TabIndex = 0;
+            this.Username_label.Text = "Please enter your username :";
             // 
             // panelMid
             // 
-            this.panelMid.Controls.Add(this.button2);
-            this.panelMid.Controls.Add(this.textBox3);
-            this.panelMid.Controls.Add(this.textBox4);
-            this.panelMid.Controls.Add(this.label3);
-            this.panelMid.Controls.Add(this.label4);
+            this.panelMid.Controls.Add(this.SecondNextBtn);
+            this.panelMid.Controls.Add(this.Answer2TB);
+            this.panelMid.Controls.Add(this.Answer1TB);
+            this.panelMid.Controls.Add(this.Q2_label);
+            this.panelMid.Controls.Add(this.Q1_label);
             this.panelMid.Location = new System.Drawing.Point(454, 89);
             this.panelMid.Name = "panelMid";
             this.panelMid.Size = new System.Drawing.Size(277, 229);
             this.panelMid.TabIndex = 1;
             // 
-            // button2
+            // SecondNextBtn
             // 
-            this.button2.Location = new System.Drawing.Point(169, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Next >>";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.SecondNextBtn.Location = new System.Drawing.Point(169, 154);
+            this.SecondNextBtn.Name = "SecondNextBtn";
+            this.SecondNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.SecondNextBtn.TabIndex = 5;
+            this.SecondNextBtn.Text = "Next >>";
+            this.SecondNextBtn.UseVisualStyleBackColor = true;
+            this.SecondNextBtn.Click += new System.EventHandler(this.SecondNextBtn_Click);
             // 
-            // textBox3
+            // Answer2TB
             // 
-            this.textBox3.Location = new System.Drawing.Point(28, 119);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(216, 20);
-            this.textBox3.TabIndex = 3;
+            this.Answer2TB.Location = new System.Drawing.Point(28, 119);
+            this.Answer2TB.Name = "Answer2TB";
+            this.Answer2TB.Size = new System.Drawing.Size(216, 20);
+            this.Answer2TB.TabIndex = 3;
             // 
-            // textBox4
+            // Answer1TB
             // 
-            this.textBox4.Location = new System.Drawing.Point(28, 51);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(216, 20);
-            this.textBox4.TabIndex = 2;
+            this.Answer1TB.Location = new System.Drawing.Point(28, 51);
+            this.Answer1TB.Name = "Answer1TB";
+            this.Answer1TB.Size = new System.Drawing.Size(216, 20);
+            this.Answer1TB.TabIndex = 2;
             // 
-            // label3
+            // Q2_label
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(25, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 1;
+            this.Q2_label.AutoSize = true;
+            this.Q2_label.ForeColor = System.Drawing.Color.White;
+            this.Q2_label.Location = new System.Drawing.Point(25, 88);
+            this.Q2_label.Name = "Q2_label";
+            this.Q2_label.Size = new System.Drawing.Size(0, 13);
+            this.Q2_label.TabIndex = 1;
             // 
-            // label4
+            // Q1_label
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(25, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 13);
-            this.label4.TabIndex = 0;
+            this.Q1_label.AutoSize = true;
+            this.Q1_label.ForeColor = System.Drawing.Color.White;
+            this.Q1_label.Location = new System.Drawing.Point(25, 24);
+            this.Q1_label.Name = "Q1_label";
+            this.Q1_label.Size = new System.Drawing.Size(0, 13);
+            this.Q1_label.TabIndex = 0;
             // 
             // panelRight
             // 
-            this.panelRight.Controls.Add(this.label8);
-            this.panelRight.Controls.Add(this.button3);
-            this.panelRight.Controls.Add(this.textBox5);
-            this.panelRight.Controls.Add(this.textBox6);
-            this.panelRight.Controls.Add(this.label5);
-            this.panelRight.Controls.Add(this.label6);
+            this.panelRight.Controls.Add(this.PasswordHint_label);
+            this.panelRight.Controls.Add(this.SubmitBtn);
+            this.panelRight.Controls.Add(this.ConfirmPasswordTB);
+            this.panelRight.Controls.Add(this.PasswordTB);
+            this.panelRight.Controls.Add(this.ConfirmPassword_label);
+            this.panelRight.Controls.Add(this.Password_label);
             this.panelRight.Location = new System.Drawing.Point(841, 85);
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(277, 233);
             this.panelRight.TabIndex = 2;
             // 
-            // label8
+            // PasswordHint_label
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(25, 192);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(231, 26);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "* Use 8 or more characters with a mix of letters, \r\n                       number" +
+            this.PasswordHint_label.AutoSize = true;
+            this.PasswordHint_label.ForeColor = System.Drawing.Color.White;
+            this.PasswordHint_label.Location = new System.Drawing.Point(25, 192);
+            this.PasswordHint_label.Name = "PasswordHint_label";
+            this.PasswordHint_label.Size = new System.Drawing.Size(231, 26);
+            this.PasswordHint_label.TabIndex = 6;
+            this.PasswordHint_label.Text = "* Use 8 or more characters with a mix of letters, \r\n                       number" +
     "s and symbols";
             // 
-            // button3
+            // SubmitBtn
             // 
-            this.button3.Location = new System.Drawing.Point(169, 154);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Submit";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.SubmitBtn.Location = new System.Drawing.Point(169, 154);
+            this.SubmitBtn.Name = "SubmitBtn";
+            this.SubmitBtn.Size = new System.Drawing.Size(75, 23);
+            this.SubmitBtn.TabIndex = 5;
+            this.SubmitBtn.Text = "Submit";
+            this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
-            // textBox5
+            // ConfirmPasswordTB
             // 
-            this.textBox5.Location = new System.Drawing.Point(28, 119);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.PasswordChar = '*';
-            this.textBox5.Size = new System.Drawing.Size(216, 20);
-            this.textBox5.TabIndex = 3;
-            this.textBox5.Leave += new System.EventHandler(this.textBox5_Leave);
+            this.ConfirmPasswordTB.Location = new System.Drawing.Point(28, 119);
+            this.ConfirmPasswordTB.Name = "ConfirmPasswordTB";
+            this.ConfirmPasswordTB.PasswordChar = '*';
+            this.ConfirmPasswordTB.Size = new System.Drawing.Size(216, 20);
+            this.ConfirmPasswordTB.TabIndex = 3;
+            this.ConfirmPasswordTB.Leave += new System.EventHandler(this.ConfirmPasswordTB_Leave);
             // 
-            // textBox6
+            // PasswordTB
             // 
-            this.textBox6.Location = new System.Drawing.Point(28, 51);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.PasswordChar = '*';
-            this.textBox6.Size = new System.Drawing.Size(216, 20);
-            this.textBox6.TabIndex = 2;
-            this.textBox6.Leave += new System.EventHandler(this.textBox6_Leave);
+            this.PasswordTB.Location = new System.Drawing.Point(28, 51);
+            this.PasswordTB.Name = "PasswordTB";
+            this.PasswordTB.PasswordChar = '*';
+            this.PasswordTB.Size = new System.Drawing.Size(216, 20);
+            this.PasswordTB.TabIndex = 2;
+            this.PasswordTB.Leave += new System.EventHandler(this.PasswordTB_Leave);
             // 
-            // label5
+            // ConfirmPassword_label
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(25, 88);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Please confirm new password";
+            this.ConfirmPassword_label.AutoSize = true;
+            this.ConfirmPassword_label.ForeColor = System.Drawing.Color.White;
+            this.ConfirmPassword_label.Location = new System.Drawing.Point(25, 88);
+            this.ConfirmPassword_label.Name = "ConfirmPassword_label";
+            this.ConfirmPassword_label.Size = new System.Drawing.Size(147, 13);
+            this.ConfirmPassword_label.TabIndex = 1;
+            this.ConfirmPassword_label.Text = "Please confirm new password";
             // 
-            // label6
+            // Password_label
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(25, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Please enter a new password";
+            this.Password_label.AutoSize = true;
+            this.Password_label.ForeColor = System.Drawing.Color.White;
+            this.Password_label.Location = new System.Drawing.Point(25, 24);
+            this.Password_label.Name = "Password_label";
+            this.Password_label.Size = new System.Drawing.Size(146, 13);
+            this.Password_label.TabIndex = 0;
+            this.Password_label.Text = "Please enter a new password";
             // 
-            // label7
+            // BottomWarning
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(68, 330);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(259, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "No record Found!! Please enter a valid entry";
-            this.label7.Visible = false;
+            this.BottomWarning.AutoSize = true;
+            this.BottomWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BottomWarning.ForeColor = System.Drawing.Color.Red;
+            this.BottomWarning.Location = new System.Drawing.Point(68, 311);
+            this.BottomWarning.Name = "BottomWarning";
+            this.BottomWarning.Size = new System.Drawing.Size(259, 13);
+            this.BottomWarning.TabIndex = 3;
+            this.BottomWarning.Text = "No record Found!! Please enter a valid entry";
+            this.BottomWarning.Visible = false;
+            // 
+            // BackToLoginPageBTN
+            // 
+            this.BackToLoginPageBTN.ForeColor = System.Drawing.Color.Purple;
+            this.BackToLoginPageBTN.Location = new System.Drawing.Point(90, 60);
+            this.BackToLoginPageBTN.Name = "BackToLoginPageBTN";
+            this.BackToLoginPageBTN.Size = new System.Drawing.Size(91, 23);
+            this.BackToLoginPageBTN.TabIndex = 4;
+            this.BackToLoginPageBTN.Text = "Back To Login";
+            this.BackToLoginPageBTN.UseVisualStyleBackColor = true;
+            this.BackToLoginPageBTN.Click += new System.EventHandler(this.BackToLoginPageBTN_Click);
             // 
             // Password
             // 
@@ -267,7 +266,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Purple;
             this.ClientSize = new System.Drawing.Size(403, 401);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.BackToLoginPageBTN);
+            this.Controls.Add(this.BottomWarning);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelLeft);
@@ -288,25 +288,25 @@
         #endregion
 
         private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button FirstNextBtn;
+        private System.Windows.Forms.TextBox EmailTB;
+        private System.Windows.Forms.TextBox usernameTB;
+        private System.Windows.Forms.Label Email_label;
+        private System.Windows.Forms.Label Username_label;
         private System.Windows.Forms.Panel panelMid;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button SecondNextBtn;
+        private System.Windows.Forms.TextBox Answer2TB;
+        private System.Windows.Forms.TextBox Answer1TB;
+        private System.Windows.Forms.Label Q2_label;
+        private System.Windows.Forms.Label Q1_label;
         private System.Windows.Forms.Panel panelRight;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button SubmitBtn;
+        private System.Windows.Forms.TextBox ConfirmPasswordTB;
+        private System.Windows.Forms.TextBox PasswordTB;
+        private System.Windows.Forms.Label ConfirmPassword_label;
+        private System.Windows.Forms.Label Password_label;
+        private System.Windows.Forms.Label BottomWarning;
+        private System.Windows.Forms.Label PasswordHint_label;
+        private System.Windows.Forms.Button BackToLoginPageBTN;
     }
 }

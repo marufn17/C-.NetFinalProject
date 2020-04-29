@@ -34,9 +34,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.UsernameTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.ShowCheckBox = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.SignupBtn = new System.Windows.Forms.Button();
@@ -115,36 +115,36 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Not Registered? Please Register now. Its totally free";
             // 
-            // textBox1
+            // UsernameTextBox
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(123, 148);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 1;
+            this.UsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UsernameTextBox.Location = new System.Drawing.Point(123, 148);
+            this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.Size = new System.Drawing.Size(206, 20);
+            this.UsernameTextBox.TabIndex = 1;
             // 
-            // textBox2
+            // PasswordTextBox
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(122, 176);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(207, 20);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.PasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PasswordTextBox.Location = new System.Drawing.Point(122, 176);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(207, 20);
+            this.PasswordTextBox.TabIndex = 2;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
             // 
-            // checkBox1
+            // ShowCheckBox
             // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(335, 179);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(53, 17);
-            this.checkBox1.TabIndex = 13;
-            this.checkBox1.TabStop = false;
-            this.checkBox1.Text = "Show";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.ShowCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ShowCheckBox.AutoSize = true;
+            this.ShowCheckBox.ForeColor = System.Drawing.Color.White;
+            this.ShowCheckBox.Location = new System.Drawing.Point(335, 179);
+            this.ShowCheckBox.Name = "ShowCheckBox";
+            this.ShowCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.ShowCheckBox.TabIndex = 13;
+            this.ShowCheckBox.TabStop = false;
+            this.ShowCheckBox.Text = "Show";
+            this.ShowCheckBox.UseVisualStyleBackColor = true;
+            this.ShowCheckBox.CheckedChanged += new System.EventHandler(this.ShowCheckBox_CheckedChanged);
             // 
             // label6
             // 
@@ -176,7 +176,7 @@
             this.SignupBtn.Location = new System.Drawing.Point(162, 357);
             this.SignupBtn.Name = "SignupBtn";
             this.SignupBtn.Size = new System.Drawing.Size(75, 23);
-            this.SignupBtn.TabIndex = 19;
+            this.SignupBtn.TabIndex = 6;
             this.SignupBtn.Text = "Sign Up";
             this.SignupBtn.UseVisualStyleBackColor = true;
             this.SignupBtn.Click += new System.EventHandler(this.SignupBtn_Click);
@@ -189,7 +189,7 @@
             this.LoginBtn.Location = new System.Drawing.Point(162, 210);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(75, 24);
-            this.LoginBtn.TabIndex = 20;
+            this.LoginBtn.TabIndex = 3;
             this.LoginBtn.Text = "Login";
             this.LoginBtn.UseVisualStyleBackColor = true;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
@@ -202,7 +202,7 @@
             this.UsernameBtn.Location = new System.Drawing.Point(162, 247);
             this.UsernameBtn.Name = "UsernameBtn";
             this.UsernameBtn.Size = new System.Drawing.Size(75, 24);
-            this.UsernameBtn.TabIndex = 21;
+            this.UsernameBtn.TabIndex = 4;
             this.UsernameBtn.Text = "Click Here";
             this.UsernameBtn.UseVisualStyleBackColor = true;
             this.UsernameBtn.Click += new System.EventHandler(this.UsernameBtn_Click);
@@ -215,7 +215,7 @@
             this.PasswordBtn.Location = new System.Drawing.Point(162, 288);
             this.PasswordBtn.Name = "PasswordBtn";
             this.PasswordBtn.Size = new System.Drawing.Size(75, 23);
-            this.PasswordBtn.TabIndex = 22;
+            this.PasswordBtn.TabIndex = 5;
             this.PasswordBtn.Text = "Click Here";
             this.PasswordBtn.UseVisualStyleBackColor = true;
             this.PasswordBtn.Click += new System.EventHandler(this.PasswordBtn_Click);
@@ -232,9 +232,9 @@
             this.Controls.Add(this.SignupBtn);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ShowCheckBox);
+            this.Controls.Add(this.PasswordTextBox);
+            this.Controls.Add(this.UsernameTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -257,9 +257,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox UsernameTextBox;
+        private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.CheckBox ShowCheckBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button SignupBtn;

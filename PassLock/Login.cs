@@ -18,11 +18,11 @@ namespace PassLock
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             //login button to get into Home page
-            if (textBox1.Text.Length == 0)//to check if username field is empty
+            if (UsernameTextBox.Text.Length == 0)//to check if username field is empty
             {
                 MessageBox.Show("Please enter your username");
             }
-            else if (textBox2.Text.Length == 0)//to check if password field is empty
+            else if (PasswordTextBox.Text.Length == 0)//to check if password field is empty
             {
                 MessageBox.Show("Please enter your password");
             }
@@ -33,12 +33,12 @@ namespace PassLock
                     sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true ");
                     sqlCon.Open();
                     SqlDataAdapter sdata = new SqlDataAdapter("Select [Password],[userID],[FirstName],[LastName] from [testdb].[dbo].[Users] " +
-                        "where [Username] = '" + textBox1.Text + "'", sqlCon);
+                        "where [Username] = '" + UsernameTextBox.Text + "'", sqlCon);
                     DataTable dataTable = new DataTable();
                     sdata.Fill(dataTable);
                     string answer1 = dataTable.Rows[0][0].ToString();//retrieve encrypted password from db
-                    string answer1Hash = BCrypt.Net.BCrypt.HashPassword(textBox2.Text);
-                    if (BCrypt.Net.BCrypt.Verify(textBox2.Text, answer1) == true)//verify retreived password with user entered password
+                    string answer1Hash = BCrypt.Net.BCrypt.HashPassword(PasswordTextBox.Text);
+                    if (BCrypt.Net.BCrypt.Verify(PasswordTextBox.Text, answer1) == true)//verify retreived password with user entered password
                     {
                         this.Hide();
                         HomePage home = new HomePage();
@@ -54,8 +54,8 @@ namespace PassLock
                 catch (Exception ex)
                 {
                     MessageBox.Show("No username found!!");
-                    textBox1.Text = null;
-                    textBox2.Text = null;
+                    UsernameTextBox.Text = null;
+                    PasswordTextBox.Text = null;
                 }
                 finally
                 {
@@ -69,8 +69,8 @@ namespace PassLock
         private void UsernameBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Username form3 = new Username();
-            form3.Show();//Shows username page.
+            Username username = new Username();
+            username.Show();//Shows username page.
         }
         /*
          * It will take user to the pasword forgot page to reset the password
@@ -93,16 +93,16 @@ namespace PassLock
         /*
          * it will shows and hide the password with checkbox response
          */
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void ShowCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (ShowCheckBox.Checked)
             {
-                textBox2.UseSystemPasswordChar = false;//will show the password
+                PasswordTextBox.UseSystemPasswordChar = false;//will show the password
             }
             else
             {
-                textBox2.UseSystemPasswordChar = true;//will hide password
+                PasswordTextBox.UseSystemPasswordChar = true;//will hide password
             }
-        }        
+        }
     }
 }

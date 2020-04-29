@@ -12,8 +12,8 @@ namespace PassLock
         public SignUp()
         {
             InitializeComponent();
-        }
-        private void button2_Click(object sender, EventArgs e)
+        }  
+        private void BackToLoginBtn_Click(object sender, EventArgs e)
         {
             //Hide current form
             this.Hide();
@@ -21,7 +21,7 @@ namespace PassLock
             //it will take user to the login page
             form1.Show();
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void CheckUsernameBtn_Click_1(object sender, EventArgs e)
         {
             //To check inserted username only has alphanumeric value or not
             bool HasSpecialChars(string username)
@@ -29,49 +29,49 @@ namespace PassLock
                 return username.Any(ch => !Char.IsLetterOrDigit(ch));
             }
             //If user inset alphanumeric value more than 7 characters
-            if (textBox4.Text.Length > 7 && HasSpecialChars(textBox4.Text) == false)
+            if (UsernameTB.Text.Length > 7 && HasSpecialChars(UsernameTB.Text) == false)
             {
-                label11.Visible = false;
+                ShowWarning1.Visible = false;
                 using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
                 {
                     sqlCon.Open();
                     SqlCommand sqlcmd = new SqlCommand();
                     //To compare if the inserted username already exist
                     sqlcmd.CommandText = "Select * from [testdb].[dbo].[Users] where Username=@uName";
-                    sqlcmd.Parameters.AddWithValue("@uName", textBox4.Text);
+                    sqlcmd.Parameters.AddWithValue("@uName", UsernameTB.Text);
                     sqlcmd.Connection = sqlCon;
                     SqlDataReader sdata = sqlcmd.ExecuteReader();
                     if (sdata.HasRows)
                     {
-                        label10.Visible = true;
-                        label10.Text = "Username already exist";
-                        label10.ForeColor = System.Drawing.Color.Red;
+                        ShowWarning2.Visible = true;
+                        ShowWarning2.Text = "Username already exist";
+                        ShowWarning2.ForeColor = System.Drawing.Color.Red;
                     }
                     else
                     {
-                        label10.Visible = true;
-                        label10.Text = "Username available!";
-                        label10.ForeColor = System.Drawing.Color.Green;
+                        ShowWarning2.Visible = true;
+                        ShowWarning2.Text = "Username available!";
+                        ShowWarning2.ForeColor = System.Drawing.Color.White;
                     }
                 }
             }
             //If username insert more than 7 characters but username has special charachter
-            else if (textBox4.Text.Length > 7 && HasSpecialChars(textBox4.Text) == true)
+            else if (UsernameTB.Text.Length > 7 && HasSpecialChars(UsernameTB.Text) == true)
             {
-                label10.Visible = false;
-                label11.Visible = true;
-                label11.Text = "username must be alphanumeric without space";
-                label11.ForeColor = System.Drawing.Color.Red;
+                ShowWarning2.Visible = false;
+                ShowWarning1.Visible = true;
+                ShowWarning1.Text = "username must be alphanumeric without space";
+                ShowWarning1.ForeColor = System.Drawing.Color.Red;
             }
             else
             {
-                label10.Visible = false;
-                label11.Visible = true;
-                label11.Text = "Username should have minimum 8 characters";
-                label11.ForeColor = System.Drawing.Color.Red;
-            }            
+                ShowWarning2.Visible = false;
+                ShowWarning1.Visible = true;
+                ShowWarning1.Text = "Username should have minimum 8 characters";
+                ShowWarning1.ForeColor = System.Drawing.Color.Red;
+            }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void SubmitBtn_Click(object sender, EventArgs e)
         {
             //To check inserted username only has alphanumeric value or not
             bool HasSpecialChars(string username)
@@ -116,7 +116,7 @@ namespace PassLock
                 else
                 {
                     return false;
-                }                
+                }
             }
             bool hasAtDotInEmail(string value)
             {
@@ -129,15 +129,15 @@ namespace PassLock
                 {
                     return true;
                 }
-                else 
+                else
                 {
                     return false;
                 }
             }
             bool isSecurityQuestionValid()
             {
-                if (comboBox1.Text.Length == 0 || textBox8.Text.Length == 0 || 
-                    comboBox2.Text.Length ==0 || textBox7.Text.Length ==0)
+                if (Q1TB.Text.Length == 0 || Answer1TB.Text.Length == 0 ||
+                    Q2TB.Text.Length == 0 || Answer2TB.Text.Length == 0)
                 {
                     return false;
                 }
@@ -145,7 +145,7 @@ namespace PassLock
                 {
                     return true;
                 }
-            }            
+            }
             bool isEmailUnique()
             {
                 using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
@@ -154,7 +154,7 @@ namespace PassLock
                     SqlCommand sqlcmd = new SqlCommand();
                     //To compare if the inserted username already exist
                     sqlcmd.CommandText = "Select * from [testdb].[dbo].[Users] where Email=@email";
-                    sqlcmd.Parameters.AddWithValue("@email", textBox3.Text);
+                    sqlcmd.Parameters.AddWithValue("@email", EmailTB.Text);
                     sqlcmd.Connection = sqlCon;
                     SqlDataReader sdata = sqlcmd.ExecuteReader();
                     if (sdata.HasRows)
@@ -168,49 +168,49 @@ namespace PassLock
                 }
             }
             //If user insert alphanumeric value more than 7 characters
-            if (textBox4.Text.Length > 7 && HasSpecialChars(textBox4.Text) == false)
+            if (UsernameTB.Text.Length > 7 && HasSpecialChars(UsernameTB.Text) == false)
             {
-                if (hasSpaceInPassword(textBox5.Text) == false)
+                if (hasSpaceInPassword(PasswordTB.Text) == false)
                 {
-                    label12.Visible = false;
-                    label11.Visible = false;
-                    if (isValidPassword(textBox5.Text) == true && textBox5.Text.Length > 7)
+                    ShowWarning3.Visible = false;
+                    ShowWarning1.Visible = false;
+                    if (isValidPassword(PasswordTB.Text) == true && PasswordTB.Text.Length > 7)
                     {
-                        if (textBox5.Text == textBox6.Text)
+                        if (PasswordTB.Text == ConfirmPasswordTB.Text)
                         {
-                            if (textBox1.Text.Length == 0)
+                            if (FirstNameTB.Text.Length == 0)
                             {
-                                label12.Visible = true;
-                                label12.Text = "You must enter your first name.";
-                                label12.ForeColor = System.Drawing.Color.Red;
+                                ShowWarning3.Visible = true;
+                                ShowWarning3.Text = "You must enter your first name.";
+                                ShowWarning3.ForeColor = System.Drawing.Color.Red;
                             }
-                            else if (textBox3.Text.Length == 0)
+                            else if (EmailTB.Text.Length == 0)
                             {
-                                label12.Visible = true;
-                                label12.Text = "You must enter your email address.";
-                                label12.ForeColor = System.Drawing.Color.Red;
+                                ShowWarning3.Visible = true;
+                                ShowWarning3.Text = "You must enter your email address.";
+                                ShowWarning3.ForeColor = System.Drawing.Color.Red;
                             }
-                            else if (hasAtInEmail(textBox3.Text) == false || hasDotComIneamil(textBox3.Text) == false || hasAtDotInEmail(textBox3.Text) == true
-                                || hasAtInFirstCharEmail(textBox3.Text) == true)
+                            else if (hasAtInEmail(EmailTB.Text) == false || hasDotComIneamil(EmailTB.Text) == false || hasAtDotInEmail(EmailTB.Text) == true
+                                || hasAtInFirstCharEmail(EmailTB.Text) == true)
                             {
-                                label12.Visible = true;
-                                label12.Text = "You must enter valid email address.";
-                                label12.ForeColor = System.Drawing.Color.Red;
+                                ShowWarning3.Visible = true;
+                                ShowWarning3.Text = "You must enter valid email address.";
+                                ShowWarning3.ForeColor = System.Drawing.Color.Red;
                             }
                             //To check if the sequrity condition is valid or not
                             else if (isSecurityQuestionValid() == false)
                             {
-                                label12.Visible = true;
-                                label12.Text = "You must enter all security Questions and Answers";
-                                label12.ForeColor = System.Drawing.Color.Red;
-                                textBox5.Text = null;
-                                textBox6.Text = null;
+                                ShowWarning3.Visible = true;
+                                ShowWarning3.Text = "You must enter all security Questions and Answers";
+                                ShowWarning3.ForeColor = System.Drawing.Color.Red;
+                                PasswordTB.Text = null;
+                                ConfirmPasswordTB.Text = null;
                             }
                             else if (isEmailUnique() == false)
                             {
                                 MessageBox.Show("We found a username associated with your email. Please use your username to login. If you forget your username, please use forget username link");
-                                textBox5.Text = null;
-                                textBox6.Text = null;
+                                PasswordTB.Text = null;
+                                ConfirmPasswordTB.Text = null;
                                 this.Hide();
                                 Login form1 = new Login();
                                 form1.Show();
@@ -218,27 +218,27 @@ namespace PassLock
                             //insert User inforamtion to data base
                             else
                             {
-                                label12.Visible = false;
+                                ShowWarning3.Visible = false;
                                 using (SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-BDDENA3;Initial Catalog=testdb;Integrated Security=true "))
                                 {
                                     sqlCon.Open();
                                     SqlCommand sqlcmd = new SqlCommand();
                                     //To compare if the inserted username already exist
                                     sqlcmd.CommandText = "Insert into [testdb].[dbo].[Users] Values (@firstname,@lastname,@email,@username,@password,@q1,@answer1,@q2,@answer2)";
-                                    sqlcmd.Parameters.AddWithValue("@firstname", textBox1.Text);
-                                    sqlcmd.Parameters.AddWithValue("@lastname", textBox2.Text);
-                                    sqlcmd.Parameters.AddWithValue("@email", textBox3.Text);
-                                    sqlcmd.Parameters.AddWithValue("@username", textBox4.Text);
+                                    sqlcmd.Parameters.AddWithValue("@firstname", FirstNameTB.Text);
+                                    sqlcmd.Parameters.AddWithValue("@lastname", LastNameTB.Text);
+                                    sqlcmd.Parameters.AddWithValue("@email", EmailTB.Text);
+                                    sqlcmd.Parameters.AddWithValue("@username", UsernameTB.Text);
                                     //encrypt user password
-                                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(textBox5.Text);
+                                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(PasswordTB.Text);
                                     sqlcmd.Parameters.AddWithValue("@password", passwordHash);
-                                    sqlcmd.Parameters.AddWithValue("@q1", comboBox1.Text);
+                                    sqlcmd.Parameters.AddWithValue("@q1", Q1TB.Text);
                                     //encrypt user answer1
-                                    string answer1Hash = BCrypt.Net.BCrypt.HashPassword(textBox8.Text.ToLower());
+                                    string answer1Hash = BCrypt.Net.BCrypt.HashPassword(Answer1TB.Text.ToLower());
                                     sqlcmd.Parameters.AddWithValue("@answer1", answer1Hash);
-                                    sqlcmd.Parameters.AddWithValue("@q2", comboBox2.Text);
+                                    sqlcmd.Parameters.AddWithValue("@q2", Q2TB.Text);
                                     //encrypt user answer2
-                                    string answer2Hash = BCrypt.Net.BCrypt.HashPassword(textBox7.Text.ToLower());
+                                    string answer2Hash = BCrypt.Net.BCrypt.HashPassword(Answer2TB.Text.ToLower());
                                     sqlcmd.Parameters.AddWithValue("@answer2", answer2Hash);
                                     sqlcmd.Connection = sqlCon;
                                     SqlDataReader sdata = sqlcmd.ExecuteReader();
@@ -251,67 +251,68 @@ namespace PassLock
                         }
                         else
                         {
-                            label12.Visible = true;
-                            label12.Text = "Both Password did not matched, Please try again.";
-                            label12.ForeColor = System.Drawing.Color.Red;
+                            ShowWarning3.Visible = true;
+                            ShowWarning3.Text = "Both Password did not matched, Please try again.";
+                            ShowWarning3.ForeColor = System.Drawing.Color.Red;
                         }
                     }
                     else
                     {
-                        label12.Visible = true;
-                        label12.Text = "Invalid password combination!! Please follow passwod Hints.";
-                        label12.ForeColor = System.Drawing.Color.Red;
+                        ShowWarning3.Visible = true;
+                        ShowWarning3.Text = "Invalid password combination!! Please follow passwod Hints.";
+                        ShowWarning3.ForeColor = System.Drawing.Color.Red;
                     }
                 }
                 else
                 {
-                    label12.Visible = true;
-                    label12.Text = "Password cannot have space";
-                    label12.ForeColor = System.Drawing.Color.Red;
+                    ShowWarning3.Visible = true;
+                    ShowWarning3.Text = "Password cannot have space";
+                    ShowWarning3.ForeColor = System.Drawing.Color.Red;
                 }
             }
             //If user forget to enter any username
-            else if (textBox4.Text.Length == 0)
+            else if (UsernameTB.Text.Length == 0)
             {
-                label10.Visible = false;
-                label11.Visible = true;
-                label11.Text = "You must enter a username with minimum 8 characters";
-                label11.ForeColor = System.Drawing.Color.Red;
-                textBox5.Text = null;
-                textBox6.Text = null;
-            }            
-            else if (textBox4.Text.Length > 7 && HasSpecialChars(textBox4.Text) == true)
+                ShowWarning2.Visible = false;
+                ShowWarning1.Visible = true;
+                ShowWarning1.Text = "You must enter a username with minimum 8 characters";
+                ShowWarning1.ForeColor = System.Drawing.Color.Red;
+                PasswordTB.Text = null;
+                ConfirmPasswordTB.Text = null;
+            }
+            else if (UsernameTB.Text.Length > 7 && HasSpecialChars(UsernameTB.Text) == true)
             {
-                label10.Visible = false;
-                label11.Visible = true;
-                label11.Text = "username must be alphanumeric without space";
-                label11.ForeColor = System.Drawing.Color.Red;
+                ShowWarning2.Visible = false;
+                ShowWarning1.Visible = true;
+                ShowWarning1.Text = "username must be alphanumeric without space";
+                ShowWarning1.ForeColor = System.Drawing.Color.Red;
             }
             else
             {
-                label10.Visible = false;
-                label11.Visible = true;
-                label11.Text = "Username should have minimum 8 characters";
-                label11.ForeColor = System.Drawing.Color.Red;
-                textBox5.Text = null;
-                textBox6.Text = null;
+                ShowWarning2.Visible = false;
+                ShowWarning1.Visible = true;
+                ShowWarning1.Text = "Username should have minimum 8 characters";
+                ShowWarning1.ForeColor = System.Drawing.Color.Red;
+                PasswordTB.Text = null;
+                ConfirmPasswordTB.Text = null;
             }
-        }
-        private void textBox3_Leave(object sender, EventArgs e)
+        }        
+        private void EmailTB_Leave(object sender, EventArgs e)
         {
+
             string email = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                         @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
 
-            if (Regex.IsMatch(textBox3.Text,email))
+            if (Regex.IsMatch(EmailTB.Text, email))
             {
-                label11.Visible = false;
+                ShowWarning1.Visible = false;
             }
             else
             {
-                label11.Visible = true;
-                label11.Text = "You must enter valid email address.";
-                label11.ForeColor = System.Drawing.Color.Red;
+                ShowWarning1.Visible = true;
+                ShowWarning1.Text = "You must enter valid email address.";
+                ShowWarning1.ForeColor = System.Drawing.Color.Red;
             }
-        }
+        }        
     }
 }

@@ -32,13 +32,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Warning1_label = new System.Windows.Forms.Label();
+            this.Warning2_label = new System.Windows.Forms.Label();
+            this.FirstNameTB = new System.Windows.Forms.TextBox();
+            this.LastNameTB = new System.Windows.Forms.TextBox();
+            this.EmailTB = new System.Windows.Forms.TextBox();
+            this.BackToLoginBtn = new System.Windows.Forms.Button();
+            this.SubmitBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -85,80 +85,80 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Email:";
             // 
-            // label5
+            // Warning1_label
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(82, 249);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(238, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "No Record found. Please check your Information";
-            this.label5.Visible = false;
+            this.Warning1_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Warning1_label.AutoSize = true;
+            this.Warning1_label.ForeColor = System.Drawing.Color.Red;
+            this.Warning1_label.Location = new System.Drawing.Point(82, 249);
+            this.Warning1_label.Name = "Warning1_label";
+            this.Warning1_label.Size = new System.Drawing.Size(238, 13);
+            this.Warning1_label.TabIndex = 4;
+            this.Warning1_label.Text = "No Record found. Please check your Information";
+            this.Warning1_label.Visible = false;
             // 
-            // label6
+            // Warning2_label
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(167, 266);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Try Again!!!";
-            this.label6.Visible = false;
+            this.Warning2_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Warning2_label.AutoSize = true;
+            this.Warning2_label.ForeColor = System.Drawing.Color.Red;
+            this.Warning2_label.Location = new System.Drawing.Point(167, 266);
+            this.Warning2_label.Name = "Warning2_label";
+            this.Warning2_label.Size = new System.Drawing.Size(61, 13);
+            this.Warning2_label.TabIndex = 5;
+            this.Warning2_label.Text = "Try Again!!!";
+            this.Warning2_label.Visible = false;
             // 
-            // textBox1
+            // FirstNameTB
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(159, 142);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 7;
+            this.FirstNameTB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.FirstNameTB.ForeColor = System.Drawing.Color.Black;
+            this.FirstNameTB.Location = new System.Drawing.Point(159, 142);
+            this.FirstNameTB.Name = "FirstNameTB";
+            this.FirstNameTB.Size = new System.Drawing.Size(145, 20);
+            this.FirstNameTB.TabIndex = 1;
             // 
-            // textBox2
+            // LastNameTB
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(159, 178);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(145, 20);
-            this.textBox2.TabIndex = 8;
+            this.LastNameTB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LastNameTB.ForeColor = System.Drawing.Color.Black;
+            this.LastNameTB.Location = new System.Drawing.Point(159, 178);
+            this.LastNameTB.Name = "LastNameTB";
+            this.LastNameTB.Size = new System.Drawing.Size(145, 20);
+            this.LastNameTB.TabIndex = 2;
             // 
-            // textBox3
+            // EmailTB
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(159, 213);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(145, 20);
-            this.textBox3.TabIndex = 9;
+            this.EmailTB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EmailTB.ForeColor = System.Drawing.Color.Black;
+            this.EmailTB.Location = new System.Drawing.Point(159, 213);
+            this.EmailTB.Name = "EmailTB";
+            this.EmailTB.Size = new System.Drawing.Size(145, 20);
+            this.EmailTB.TabIndex = 3;
             // 
-            // button3
+            // BackToLoginBtn
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.ForeColor = System.Drawing.Color.Purple;
-            this.button3.Location = new System.Drawing.Point(85, 299);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "<< Back";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.BackToLoginBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BackToLoginBtn.ForeColor = System.Drawing.Color.Purple;
+            this.BackToLoginBtn.Location = new System.Drawing.Point(85, 299);
+            this.BackToLoginBtn.Name = "BackToLoginBtn";
+            this.BackToLoginBtn.Size = new System.Drawing.Size(75, 23);
+            this.BackToLoginBtn.TabIndex = 5;
+            this.BackToLoginBtn.Text = "<< Back";
+            this.BackToLoginBtn.UseVisualStyleBackColor = true;
+            this.BackToLoginBtn.Click += new System.EventHandler(this.BackToLoginBtn_Click);
             // 
-            // button2
+            // SubmitBtn
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.ForeColor = System.Drawing.Color.Purple;
-            this.button2.Location = new System.Drawing.Point(245, 299);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Submit";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.SubmitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SubmitBtn.ForeColor = System.Drawing.Color.Purple;
+            this.SubmitBtn.Location = new System.Drawing.Point(245, 299);
+            this.SubmitBtn.Name = "SubmitBtn";
+            this.SubmitBtn.Size = new System.Drawing.Size(75, 23);
+            this.SubmitBtn.TabIndex = 4;
+            this.SubmitBtn.Text = "Submit";
+            this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
             // Username
             // 
@@ -166,13 +166,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Purple;
             this.ClientSize = new System.Drawing.Size(403, 401);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.SubmitBtn);
+            this.Controls.Add(this.BackToLoginBtn);
+            this.Controls.Add(this.EmailTB);
+            this.Controls.Add(this.LastNameTB);
+            this.Controls.Add(this.FirstNameTB);
+            this.Controls.Add(this.Warning2_label);
+            this.Controls.Add(this.Warning1_label);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -191,12 +191,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label Warning1_label;
+        private System.Windows.Forms.Label Warning2_label;
+        private System.Windows.Forms.TextBox FirstNameTB;
+        private System.Windows.Forms.TextBox LastNameTB;
+        private System.Windows.Forms.TextBox EmailTB;
+        private System.Windows.Forms.Button BackToLoginBtn;
+        private System.Windows.Forms.Button SubmitBtn;
     }
 }
